@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Luxury Haven Hotel Admin</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
+    <style>
+        :root {
+            --primary: #c19a6b;
+            --primary-dark: #a5825d;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+        
+        .brand-link {
+            border-bottom: none !important;
+        }
+        
+       
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .content-header {
+            background-color: #f8f9fa;
+            padding: 20px 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .card-primary:not(.card-outline) > .card-header {
+            background-color: var(--primary);
+        }
+        
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, 
+        .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .gallery-category {
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .gallery-card {
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .gallery-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .category-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-right: 5px;
+        }
+        
+        .upload-box {
+            border: 2px dashed #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-box:hover {
+            border-color: var(--primary);
+            background-color: rgba(193, 154, 107, 0.05);
+        }
+        
+        .upload-icon {
+            font-size: 3rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .image-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .preview-item {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .preview-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .preview-remove {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255,255,255,0.8);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .sortable-ghost {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+ <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="dashboard.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index.html" class="nav-link">View Website</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 new bookings
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard.html" class="brand-link">
+            <span class="brand-text font-weight-light ml-3">Luxury Haven Admin</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="gerad.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin User</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link">
+                            <i class="nav-icon fas fa-bed"></i>
+                            <p>Room Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="bookings.html" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Bookings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="guests.html" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Guests</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="amenities.html" class="nav-link">
+                            <i class="nav-icon fas fa-concierge-bell"></i>
+                            <p>Amenities</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link active">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">
+                            <i class="nav-icon fas fa-star"></i>
+                            <p>Testimonials</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="content.html" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>Pages Content</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Help & Support</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Gallery Management</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Gallery</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Gallery Tools</h3>
+                                <div class="card-tools">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#uploadModal">
+                                        <i class="fas fa-plus"></i> Upload Images
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-info"><i class="fas fa-image"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Total Images</span>
+                                                <span class="info-box-number">187</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-success"><i class="fas fa-bed"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Room Photos</span>
+                                                <span class="info-box-number">64</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-warning"><i class="fas fa-utensils"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Dining Photos</span>
+                                                <span class="info-box-number">42</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-primary"><i class="fas fa-spa"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Amenity Photos</span>
+                                                <span class="info-box-number">81</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="mb-3">Filter Images</h5>
+                                <div class="filter-buttons">
+                                    <button class="btn btn-outline-primary active" data-filter="all">All Images</button>
+                                    <button class="btn btn-outline-primary" data-filter="rooms">Rooms</button>
+                                    <button class="btn btn-outline-primary" data-filter="dining">Dining</button>
+                                    <button class="btn btn-outline-primary" data-filter="amenities">Amenities</button>
+                                    <button class="btn btn-outline-primary" data-filter="events">Events</button>
+                                    <button class="btn btn-outline-primary" data-filter="exterior">Exterior</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="gallery-category">
+                            <h3>All Gallery Images</h3>
+                            <p>Manage your hotel's image gallery. Drag and drop to reorder images.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="gallery-container">
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="rooms">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Deluxe Room">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Deluxe Room <span class="category-badge">Rooms</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Oct 12, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured1">
+                                    <label class="form-check-label" for="featured1">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="dining">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Main Restaurant">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Main Restaurant <span class="category-badge">Dining</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Oct 10, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured2" checked>
+                                    <label class="form-check-label" for="featured2">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="amenities">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNwYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Spa Center">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Spa Center <span class="category-badge">Amenities</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Oct 5, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured3" checked>
+                                    <label class="form-check-label" for="featured3">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="exterior">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Hotel Exterior">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Hotel Exterior <span class="category-badge">Exterior</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Oct 3, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured4" checked>
+                                    <label class="form-check-label" for="featured4">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="events">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1580554530778-ca36943938b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmclMjByZWNlcHRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Wedding Event">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Wedding Event <span class="category-badge">Events</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Sep 28, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured5">
+                                    <label class="form-check-label" for="featured5">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="rooms">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Presidential Suite">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Presidential Suite <span class="category-badge">Rooms</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Sep 25, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured6" checked>
+                                    <label class="form-check-label" for="featured6">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="amenities">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG90ZWwlMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Pool Area">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Pool Area <span class="category-badge">Amenities</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Sep 20, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured7" checked>
+                                    <label class="form-check-label" for="featured7">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item -->
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="dining">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Gourmet Dining">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">Gourmet Dining <span class="category-badge">Dining</span></h6>
+                                <p class="card-text text-muted small">Uploaded: Sep 15, 2023</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="featured8">
+                                    <label class="form-check-label" for="featured8">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <nav aria-label="Gallery pagination">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Upload Modal -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">Upload Images</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadForm">
+                        <div class="upload-box" id="dropZone">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <h5>Drag & Drop to Upload</h5>
+                            <p>or</p>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="galleryUpload" multiple accept="image/*">
+                                <label class="custom-file-label" for="galleryUpload">Choose images</label>
+                            </div>
+                            <small class="form-text text-muted">Supported formats: JPG, PNG, GIF. Max file size: 5MB</small>
+                        </div>
+                        
+                        <div class="image-preview" id="imagePreview"></div>
+                        
+                        <div class="form-group mt-3">
+                            <label for="imageCategory">Category</label>
+                            <select class="form-control" id="imageCategory">
+                                <option value="rooms">Rooms</option>
+                                <option value="dining">Dining</option>
+                                <option value="amenities">Amenities</option>
+                                <option value="events">Events</option>
+                                <option value="exterior">Exterior</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imageTitle">Image Title</label>
+                            <input type="text" class="form-control" id="imageTitle" placeholder="Enter a title for the image">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imageDescription">Description (Optional)</label>
+                            <textarea class="form-control" id="imageDescription" rows="2" placeholder="Brief description of the image"></textarea>
+                        </div>
+                        
+                        <div class="form-check mb-3">
+                            <input type="checkbox" class="form-check-input" id="featuredUpload">
+                            <label class="form-check-label" for="featuredUpload">Feature this image on homepage</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="uploadButton">Upload Images</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Luxury Haven Hotel</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+<!-- Sortable JS -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+
+<!-- Custom scripts -->
+<script>
+    $(document).ready(function() {
+        // Update custom file input label
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            
+            // Show preview of selected images
+            if (this.files && this.files.length > 0) {
+                $('#imagePreview').empty();
+                for (let i = 0; i < this.files.length; i++) {
+                    let reader = new FileReader();
+                    reader.onload = function(e) {
+                        $('#imagePreview').append(`
+                            <div class="preview-item">
+                                <img src="${e.target.result}" class="preview-img" alt="Preview">
+                                <div class="preview-remove" data-index="${i}">&times;</div>
+                            </div>
+                        `);
+                    }
+                    reader.readAsDataURL(this.files[i]);
+                }
+            }
+        });
+        
+        // Remove image from preview
+        $(document).on('click', '.preview-remove', function() {
+            $(this).parent().remove();
+        });
+        
+        // Filter gallery items
+        $('.filter-buttons button').on('click', function() {
+            const filter = $(this).data('filter');
+            
+            // Update active state
+            $('.filter-buttons button').removeClass('active');
+            $(this).addClass('active');
+            
+            // Filter items
+            if (filter === 'all') {
+                $('.gallery-item').show();
+            } else {
+                $('.gallery-item').hide();
+                $(`.gallery-item[data-category="${filter}"]`).show();
+            }
+        });
+        
+        // Initialize sortable gallery
+        const galleryContainer = document.getElementById('gallery-container');
+        if (galleryContainer) {
+            new Sortable(galleryContainer, {
+                animation: 150,
+                ghostClass: 'sortable-ghost',
+                onEnd: function() {
+                    console.log('Gallery order changed');
+                    // In a real application, you would save the new order to the server
+                }
+            });
+        }
+        
+        // Upload button handler
+        $('#uploadButton').on('click', function() {
+            // In a real application, this would upload the images to the server
+            alert('Images uploaded successfully!');
+            $('#uploadModal').modal('hide');
+            $('#uploadForm')[0].reset();
+            $('#imagePreview').empty();
+            $('.custom-file-label').html('Choose images');
+        });
+        
+        // Drag and drop functionality
+        const dropZone = document.getElementById('dropZone');
+        if (dropZone) {
+            dropZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.borderColor = 'var(--primary)';
+                this.style.backgroundColor = 'rgba(193, 154, 107, 0.1)';
+            });
+            
+            dropZone.addEventListener('dragleave', function() {
+                this.style.borderColor = '#dee2e6';
+                this.style.backgroundColor = '';
+            });
+            
+            dropZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.borderColor = '#dee2e6';
+                this.style.backgroundColor = '';
+                
+                // Handle dropped files
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    $('#galleryUpload').prop('files', files);
+                    
+                    // Trigger change event to update preview
+                    $('#galleryUpload').trigger('change');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

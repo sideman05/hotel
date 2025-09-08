@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - Luxury Haven Hotel Admin</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
+    <style>
+        :root {
+            --primary: #c19a6b;
+            --primary-dark: #a5825d;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+        
+        .brand-link {
+            border-bottom: none !important;
+        }
+        
+      
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .content-header {
+            background-color: #f8f9fa;
+            padding: 20px 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .card-primary:not(.card-outline) > .card-header {
+            background-color: var(--primary);
+        }
+        
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, 
+        .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .help-category {
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .support-card {
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .support-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding-top: 10px;
+            color: #6c757d;
+            display: none;
+        }
+        
+        .faq-active .faq-answer {
+            display: block;
+        }
+        
+        .contact-support {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .knowledge-base article {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .video-tutorial {
+            margin-bottom: 25px;
+        }
+        
+        .video-placeholder {
+            background-color: #f8f9fa;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+ <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="dashboard.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index.html" class="nav-link">View Website</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 new bookings
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard.html" class="brand-link">
+            <span class="brand-text font-weight-light ml-3">Luxury Haven Admin</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="gerad.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin User</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link">
+                            <i class="nav-icon fas fa-bed"></i>
+                            <p>Room Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="bookings.html" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Bookings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="guests.html" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Guests</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="amenities.html" class="nav-link">
+                            <i class="nav-icon fas fa-concierge-bell"></i>
+                            <p>Amenities</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">
+                            <i class="nav-icon fas fa-star"></i>
+                            <p>Testimonials</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="content.html" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>Pages Content</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html" class="nav-link active">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Help & Support</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Help & Support</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Help & Support</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="alert alert-info">
+                            <h5><i class="icon fas fa-info-circle"></i> Need Assistance?</h5>
+                            <p>Our support team is available 24/7 to help you with any questions or issues you may encounter while using the Luxury Haven Admin Panel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card support-card text-center">
+                            <div class="card-body">
+                                <div class="support-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <h5 class="card-title">Knowledge Base</h5>
+                                <p class="card-text">Browse our comprehensive documentation and guides for all features.</p>
+                                <a href="#knowledge-base" class="btn btn-primary">View Articles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card support-card text-center">
+                            <div class="card-body">
+                                <div class="support-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <h5 class="card-title">Video Tutorials</h5>
+                                <p class="card-text">Watch step-by-step video guides to master the admin panel.</p>
+                                <a href="#video-tutorials" class="btn btn-primary">Watch Tutorials</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card support-card text-center">
+                            <div class="card-body">
+                                <div class="support-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h5 class="card-title">Contact Support</h5>
+                                <p class="card-text">Get in touch with our support team for personalized assistance.</p>
+                                <a href="#contact-support" class="btn btn-primary">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="help-category">
+                            <h3 id="knowledge-base">Knowledge Base</h3>
+                            <p>Find answers to common questions and learn how to make the most of our system.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4 knowledge-base">
+                    <div class="col-md-6">
+                        <article>
+                            <h4><i class="fas fa-bed text-primary mr-2"></i> Room Management</h4>
+                            <ul>
+                                <li><a href="#" class="text-dark">How to add a new room</a></li>
+                                <li><a href="#" class="text-dark">Setting room rates and availability</a></li>
+                                <li><a href="#" class="text-dark">Managing room amenities</a></li>
+                                <li><a href="#" class="text-dark">Updating room status</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="col-md-6">
+                        <article>
+                            <h4><i class="fas fa-calendar-check text-primary mr-2"></i> Booking System</h4>
+                            <ul>
+                                <li><a href="#" class="text-dark">Creating a new booking</a></li>
+                                <li><a href="#" class="text-dark">Managing existing bookings</a></li>
+                                <li><a href="#" class="text-dark">Understanding booking statuses</a></li>
+                                <li><a href="#" class="text-dark">Processing cancellations and refunds</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="col-md-6">
+                        <article>
+                            <h4><i class="fas fa-users text-primary mr-2"></i> Guest Management</h4>
+                            <ul>
+                                <li><a href="#" class="text-dark">Adding guest information</a></li>
+                                <li><a href="#" class="text-dark">Managing guest preferences</a></li>
+                                <li><a href="#" class="text-dark">Loyalty program management</a></li>
+                                <li><a href="#" class="text-dark">Viewing guest history</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                    <div class="col-md-6">
+                        <article>
+                            <h4><i class="fas fa-cog text-primary mr-2"></i> System Settings</h4>
+                            <ul>
+                                <li><a href="#" class="text-dark">Configuring hotel information</a></li>
+                                <li><a href="#" class="text-dark">Setting up payment methods</a></li>
+                                <li><a href="#" class="text-dark">Managing user permissions</a></li>
+                                <li><a href="#" class="text-dark">Backup and restore procedures</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="help-category">
+                            <h3>Frequently Asked Questions</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <div class="faq-item">
+                            <div class="faq-question" data-toggle="collapse" data-target="#faq1">
+                                How do I reset my password? <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="faq1" class="faq-answer collapse">
+                                To reset your password, go to the login page and click on "Forgot Password". Enter your email address and you will receive instructions to reset your password. If you continue to experience issues, please contact support.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-toggle="collapse" data-target="#faq2">
+                                How can I generate reports? <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="faq2" class="faq-answer collapse">
+                                Reports can be generated from the Dashboard or specific management sections. Click on the "Reports" tab, select the type of report you need, set the date range and parameters, then click "Generate Report". Reports can be exported in PDF, Excel, or CSV formats.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-toggle="collapse" data-target="#faq3">
+                                How do I update room rates for different seasons? <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="faq3" class="faq-answer collapse">
+                                To set seasonal pricing, go to Room Management, select the room you want to update, and click on "Pricing". Here you can set different rates for specific date ranges. You can also bulk update multiple rooms by using the "Seasonal Rates" tool in the Room Management dashboard.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-toggle="collapse" data-target="#faq4">
+                                What should I do if a payment fails to process? <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="faq4" class="faq-answer collapse">
+                                First, verify that the payment gateway is properly configured in Settings > Payment. If the settings are correct, check if the guest's card details were entered correctly. You can try processing the payment again or use an alternative payment method. If issues persist, contact our support team with the error details.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" data-toggle="collapse" data-target="#faq5">
+                                How can I customize confirmation emails? <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="faq5" class="faq-answer collapse">
+                                Email templates can be customized in Settings > Email Templates. Select the template you want to modify, make your changes using the editor, and save. You can use placeholders like {guest_name} and {booking_number} to personalize emails with dynamic content.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="help-category">
+                            <h3 id="video-tutorials">Video Tutorials</h3>
+                            <p>Watch these tutorials to learn how to use key features of the admin panel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4 video-tutorial">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle fa-3x text-muted"></i>
+                        </div>
+                        <h5>Managing Bookings</h5>
+                        <p class="text-muted">Learn how to create, modify, and cancel bookings in the system.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Watch Now</a>
+                    </div>
+                    <div class="col-md-4 video-tutorial">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle fa-3x text-muted"></i>
+                        </div>
+                        <h5>Room Management</h5>
+                        <p class="text-muted">A guide to adding rooms, setting rates, and managing availability.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Watch Now</a>
+                    </div>
+                    <div class="col-md-4 video-tutorial">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle fa-3x text-muted"></i>
+                        </div>
+                        <h5>Reporting Features</h5>
+                        <p class="text-muted">How to generate and interpret various reports in the system.</p>
+                        <a href="#" class="btn btn-sm btn-outline-primary">Watch Now</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="help-category">
+                            <h3 id="contact-support">Contact Support</h3>
+                            <p>Get in touch with our support team for assistance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Send us a Message</h5>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="supportName">Your Name</label>
+                                            <input type="text" class="form-control" id="supportName" placeholder="Enter your name">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="supportEmail">Email Address</label>
+                                            <input type="email" class="form-control" id="supportEmail" placeholder="Enter your email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supportSubject">Subject</label>
+                                        <input type="text" class="form-control" id="supportSubject" placeholder="What is this regarding?">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supportDepartment">Department</label>
+                                        <select class="form-control" id="supportDepartment">
+                                            <option>Technical Support</option>
+                                            <option>Billing Inquiry</option>
+                                            <option>Feature Request</option>
+                                            <option>General Question</option>
+                                            <option>Bug Report</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supportMessage">Message</label>
+                                        <textarea class="form-control" id="supportMessage" rows="5" placeholder="Describe your issue or question in detail"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="supportAttachment">Attachments (Optional)</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="supportAttachment">
+                                            <label class="custom-file-label" for="supportAttachment">Choose file</label>
+                                        </div>
+                                        <small class="form-text text-muted">Upload screenshots or documents that might help us understand your issue better.</small>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Request</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-support">
+                            <h5>Support Channels</h5>
+                            <div class="mt-4">
+                                <p><i class="fas fa-envelope mr-2 text-primary"></i> <strong>Email:</strong> support@luxuryhaven.com</p>
+                                <p><i class="fas fa-phone mr-2 text-primary"></i> <strong>Phone:</strong> +1 (800) 123-HELP</p>
+                                <p><i class="fas fa-clock mr-2 text-primary"></i> <strong>Hours:</strong> 24/7</p>
+                                <p><i class="fas fa-comments mr-2 text-primary"></i> <strong>Live Chat:</strong> Available</p>
+                            </div>
+                            <div class="mt-4">
+                                <h6>Emergency Contact</h6>
+                                <p>For critical system outages outside business hours, call our emergency line: <strong>+1 (800) 123-URGENT</strong></p>
+                            </div>
+                            <div class="mt-4">
+                                <h6>System Status</h6>
+                                <div class="alert alert-success">
+                                    <i class="fas fa-check-circle"></i> All systems operational
+                                </div>
+                                <a href="#" class="btn btn-sm btn-outline-primary">View Status Page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Luxury Haven Hotel</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<!-- Custom scripts -->
+<script>
+    $(document).ready(function() {
+        // Update custom file input label
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+        
+        // FAQ toggle functionality
+        $('.faq-question').on('click', function() {
+            $(this).find('i').toggleClass('fa-chevron-down fa-chevron-up');
+        });
+        
+        // Smooth scrolling for anchor links
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = this.hash;
+            var $target = $(target);
+            $('html, body').animate({
+                'scrollTop': $target.offset().top - 70
+            }, 800, 'swing');
+        });
+        
+        // Form submission handling
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+            // In a real application, this would send data to the server
+            alert('Your support request has been submitted successfully! We will get back to you within 24 hours.');
+            $(this)[0].reset();
+            $('.custom-file-label').html('Choose file');
+        });
+    });
+</script>
+</body>
+</html>

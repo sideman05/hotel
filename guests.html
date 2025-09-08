@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Management - Luxury Haven Hotel Admin</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
+    <style>
+        :root {
+            --primary: #c19a6b;
+            --primary-dark: #a5825d;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+        
+        .brand-link {
+            border-bottom: none !important;
+        }
+        
+      
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .content-header {
+            background-color: #f8f9fa;
+            padding: 20px 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .card-primary:not(.card-outline) > .card-header {
+            background-color: var(--primary);
+        }
+        
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, 
+        .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .table thead th {
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .guest-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .guest-status-badge {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        .guest-card {
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .guest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .guest-detail-item {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #f1f1f1;
+            padding-bottom: 10px;
+        }
+        
+        .guest-detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .stats-small-box {
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+        
+        .filter-box {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+ <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="dashboard.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index.html" class="nav-link">View Website</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 new bookings
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard.html" class="brand-link">
+            <span class="brand-text font-weight-light ml-3">Luxury Haven Admin</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="gerad.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin User</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link">
+                            <i class="nav-icon fas fa-bed"></i>
+                            <p>Room Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="bookings.html" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Bookings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="guests.html" class="nav-link active">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Guests</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="amenities.html" class="nav-link">
+                            <i class="nav-icon fas fa-concierge-bell"></i>
+                            <p>Amenities</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">
+                            <i class="nav-icon fas fa-star"></i>
+                            <p>Testimonials</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="content.html" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>Pages Content</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Help & Support</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Guest Management</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Guest Management</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Guest Management Tools</h3>
+                                <div class="card-tools">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addGuestModal">
+                                        <i class="fas fa-plus"></i> Add New Guest
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-info"><i class="fas fa-users"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Total Guests</span>
+                                                <span class="info-box-number">156</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-success"><i class="fas fa-bed"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Currently Staying</span>
+                                                <span class="info-box-number">42</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-warning"><i class="fas fa-calendar-check"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">Upcoming Arrivals</span>
+                                                <span class="info-box-number">18</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="info-box">
+                                            <span class="info-box-icon bg-primary"><i class="fas fa-crown"></i></span>
+                                            <div class="info-box-content">
+                                                <span class="info-box-text">VIP Guests</span>
+                                                <span class="info-box-number">9</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card filter-box">
+                            <div class="card-body">
+                                <h5 class="card-title">Filter Guests</h5>
+                                <form class="form-inline">
+                                    <div class="form-group mr-3 mb-2">
+                                        <label for="statusFilter" class="mr-2">Status:</label>
+                                        <select class="form-control" id="statusFilter">
+                                            <option value="">All Guests</option>
+                                            <option value="staying">Currently Staying</option>
+                                            <option value="upcoming">Upcoming Arrivals</option>
+                                            <option value="checkedout">Checked Out</option>
+                                            <option value="vip">VIP Guests</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group mr-3 mb-2">
+                                        <label for="searchGuest" class="mr-2">Search:</label>
+                                        <input type="text" class="form-control" id="searchGuest" placeholder="Name, email, phone...">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mb-2">
+                                        <i class="fas fa-filter"></i> Apply Filters
+                                    </button>
+                                    <button type="reset" class="btn btn-default mb-2 ml-2">
+                                        <i class="fas fa-redo"></i> Reset
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">All Guests</h3>
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 200px;">
+                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search guests...">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>Guest</th>
+                                            <th>Contact</th>
+                                            <th>Status</th>
+                                            <th>Current Stay</th>
+                                            <th>Loyalty Tier</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="guest-avatar mr-3" alt="User Image">
+                                                    <div>
+                                                        <div class="font-weight-bold">Robert Johnson</div>
+                                                        <div class="text-muted">ID: GH234567</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>robert.j@example.com</div>
+                                                <div class="text-muted">+1 (234) 567-8901</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge guest-status-badge bg-success">Checked In</span>
+                                            </td>
+                                            <td>
+                                                <div>Room 302 - Deluxe</div>
+                                                <div class="text-muted">Since: Oct 12, 2023</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-warning">Gold Member</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
+                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="guest-avatar mr-3" alt="User Image">
+                                                    <div>
+                                                        <div class="font-weight-bold">Sarah Williams</div>
+                                                        <div class="text-muted">ID: GH345678</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>sarah.w@example.com</div>
+                                                <div class="text-muted">+1 (345) 678-9012</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge guest-status-badge bg-info">Arriving Today</span>
+                                            </td>
+                                            <td>
+                                                <div>Room 405 - Suite</div>
+                                                <div class="text-muted">Check-in: Today, 3 PM</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-danger">Platinum Member</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
+                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="guest-avatar mr-3" alt="User Image">
+                                                    <div>
+                                                        <div class="font-weight-bold">Michael Brown</div>
+                                                        <div class="text-muted">ID: GH456789</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>michael.b@example.com</div>
+                                                <div class="text-muted">+1 (456) 789-0123</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge guest-status-badge bg-secondary">Checked Out</span>
+                                            </td>
+                                            <td>
+                                                <div>Room 201 - Standard</div>
+                                                <div class="text-muted">Oct 5-10, 2023</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-secondary">Silver Member</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
+                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://randomuser.me/api/portraits/women/28.jpg" class="guest-avatar mr-3" alt="User Image">
+                                                    <div>
+                                                        <div class="font-weight-bold">Jennifer Davis</div>
+                                                        <div class="text-muted">ID: GH567890</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>jennifer.d@example.com</div>
+                                                <div class="text-muted">+1 (567) 890-1234</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge guest-status-badge bg-success">Checked In</span>
+                                            </td>
+                                            <td>
+                                                <div>Room 501 - Presidential</div>
+                                                <div class="text-muted">Since: Oct 8, 2023</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-danger">Platinum Member</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
+                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="guest-avatar mr-3" alt="User Image">
+                                                    <div>
+                                                        <div class="font-weight-bold">David Miller</div>
+                                                        <div class="text-muted">ID: GH678901</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div>david.m@example.com</div>
+                                                <div class="text-muted">+1 (678) 901-2345</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge guest-status-badge bg-warning">Arriving Tomorrow</span>
+                                            </td>
+                                            <td>
+                                                <div>Room 204 - Ocean View</div>
+                                                <div class="text-muted">Check-in: Tomorrow</div>
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-warning">Gold Member</span>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
+                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer clearfix">
+                                <ul class="pagination pagination-sm m-0 float-right">
+                                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Add Guest Modal -->
+    <div class="modal fade" id="addGuestModal" tabindex="-1" role="dialog" aria-labelledby="addGuestModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addGuestModalLabel">Add New Guest</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="guestFirstName">First Name</label>
+                                <input type="text" class="form-control" id="guestFirstName" placeholder="First name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="guestLastName">Last Name</label>
+                                <input type="text" class="form-control" id="guestLastName" placeholder="Last name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="guestEmail">Email Address</label>
+                                <input type="email" class="form-control" id="guestEmail" placeholder="Email address">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="guestPhone">Phone Number</label>
+                                <input type="tel" class="form-control" id="guestPhone" placeholder="Phone number">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="guestCountry">Country</label>
+                                <select class="form-control" id="guestCountry">
+                                    <option selected>United States</option>
+                                    <option>United Kingdom</option>
+                                    <option>Canada</option>
+                                    <option>Australia</option>
+                                    <option>Germany</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="guestIdType">ID Type</label>
+                                <select class="form-control" id="guestIdType">
+                                    <option selected>Passport</option>
+                                    <option>Driver's License</option>
+                                    <option>National ID</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestIdNumber">ID Number</label>
+                            <input type="text" class="form-control" id="guestIdNumber" placeholder="ID number">
+                        </div>
+                        <div class="form-group">
+                            <label for="guestAddress">Address</label>
+                            <textarea class="form-control" id="guestAddress" rows="2" placeholder="Full address"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="guestLoyaltyTier">Loyalty Tier</label>
+                                <select class="form-control" id="guestLoyaltyTier">
+                                    <option selected>Standard</option>
+                                    <option>Silver</option>
+                                    <option>Gold</option>
+                                    <option>Platinum</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="guestPreferences">Special Preferences</label>
+                                <select class="form-control" id="guestPreferences" multiple>
+                                    <option>Non-smoking room</option>
+                                    <option>High floor</option>
+                                    <option>Early check-in</option>
+                                    <option>Late check-out</option>
+                                    <option>Airport transfer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestNotes">Additional Notes</label>
+                            <textarea class="form-control" id="guestNotes" rows="2" placeholder="Any special notes or requests"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Guest</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Luxury Haven Hotel</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<!-- Custom scripts -->
+<script>
+    $(document).ready(function() {
+        // Form submission handling
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+            // In a real application, this would send data to the server
+            alert('Guest added successfully!');
+            $('#addGuestModal').modal('hide');
+        });
+        
+        // Filter functionality
+        $('#statusFilter, #searchGuest').on('change keyup', function() {
+            // In a real application, this would filter the guest list
+            console.log('Filtering guests...');
+        });
+    });
+</script>
+</body>
+</html>

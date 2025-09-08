@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Luxury Haven Hotel Admin</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
+    <style>
+        :root {
+            --primary: #c19a6b;
+            --primary-dark: #a5825d;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+        
+        .brand-link {
+            border-bottom: none !important;
+        }
+        
+       
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .content-header {
+            background-color: #f8f9fa;
+            padding: 20px 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .card-primary:not(.card-outline) > .card-header {
+            background-color: var(--primary);
+        }
+        
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, 
+        .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .table thead th {
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .room-image-preview {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .stats-small-box {
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+        
+        .settings-nav .nav-link {
+            border-left: 3px solid transparent;
+            color: var(--dark);
+            padding: 12px 15px;
+        }
+        
+        .settings-nav .nav-link.active {
+            border-left-color: var(--primary);
+            background-color: rgba(193, 154, 107, 0.1);
+            font-weight: 600;
+        }
+        
+        .settings-nav .nav-link:hover:not(.active) {
+            background-color: #f8f9fa;
+        }
+        
+        .settings-section {
+            display: none;
+        }
+        
+        .settings-section.active {
+            display: block;
+        }
+        
+        .color-preview {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 10px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .backup-status {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .backup-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .backup-warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .backup-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="dashboard.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index.html" class="nav-link">View Website</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 new bookings
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard.html" class="brand-link">
+            <span class="brand-text font-weight-light ml-3">Luxury Haven Admin</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="gerad.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin User</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link">
+                            <i class="nav-icon fas fa-bed"></i>
+                            <p>Room Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="bookings.html" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Bookings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="guests.html" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Guests</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="amenities.html" class="nav-link">
+                            <i class="nav-icon fas fa-concierge-bell"></i>
+                            <p>Amenities</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">
+                            <i class="nav-icon fas fa-star"></i>
+                            <p>Testimonials</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="content.html" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>Pages Content</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link active">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Help & Support</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Settings</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Settings</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Settings Menu</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <ul class="nav nav-pills flex-column settings-nav">
+                                    <li class="nav-item">
+                                        <a href="#general" class="nav-link active" data-toggle="tab">
+                                            <i class="fas fa-cog mr-2"></i> General
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#website" class="nav-link" data-toggle="tab">
+                                            <i class="fas fa-globe mr-2"></i> Website
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#booking" class="nav-link" data-toggle="tab">
+                                            <i class="fas fa-calendar-check mr-2"></i> Booking
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#payment" class="nav-link" data-toggle="tab">
+                                            <i class="fas fa-credit-card mr-2"></i> Payment
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#email" class="nav-link" data-toggle="tab">
+                                            <i class="fas fa-envelope mr-2"></i> Email
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#notifications" class="nav-link" data-toggle="tab">
+                                            <i class="fas fa-bell mr-2"></i> Notifications
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#seo" class="nav-link" data-toggle="tab">
+                                            <i class="fas fa-search mr-2"></i> SEO
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#backup" class="nav-link" data-toggle="tab">
+                                            <i class="fas fa-database mr-2"></i> Backup
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">System Settings</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <!-- General Settings -->
+                                    <div class="tab-pane active" id="general">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="hotelName">Hotel Name</label>
+                                                <input type="text" class="form-control" id="hotelName" value="Luxury Haven Hotel">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="hotelEmail">Contact Email</label>
+                                                <input type="email" class="form-control" id="hotelEmail" value="info@luxuryhaven.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="hotelPhone">Contact Phone</label>
+                                                <input type="text" class="form-control" id="hotelPhone" value="+1 (123) 456-7890">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="hotelAddress">Address</label>
+                                                <textarea class="form-control" id="hotelAddress" rows="3">123 Luxury Avenue, Prestige District, City, Country 10001</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="timezone">Timezone</label>
+                                                <select class="form-control" id="timezone">
+                                                    <option selected>(UTC-05:00) Eastern Time</option>
+                                                    <option>(UTC-08:00) Pacific Time</option>
+                                                    <option>(UTC-07:00) Mountain Time</option>
+                                                    <option>(UTC-06:00) Central Time</option>
+                                                    <option>(UTC+00:00) London</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="currency">Currency</label>
+                                                <select class="form-control" id="currency">
+                                                    <option selected>USD ($)</option>
+                                                    <option>EUR (€)</option>
+                                                    <option>GBP (£)</option>
+                                                    <option>JPY (¥)</option>
+                                                    <option>CAD (C$)</option>
+                                                </select>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save General Settings</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- Website Settings -->
+                                    <div class="tab-pane" id="website">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="websiteTitle">Website Title</label>
+                                                <input type="text" class="form-control" id="websiteTitle" value="Luxury Haven Hotel | Luxury Stays & Experiences">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="metaDescription">Meta Description</label>
+                                                <textarea class="form-control" id="metaDescription" rows="3">Experience luxury and comfort at Luxury Haven Hotel. Book your stay now for exclusive offers and premium amenities.</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="logoUpload">Logo Upload</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="logoUpload">
+                                                    <label class="custom-file-label" for="logoUpload">Choose file</label>
+                                                </div>
+                                                <small class="form-text text-muted">Recommended size: 250x80 pixels</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="faviconUpload">Favicon Upload</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="faviconUpload">
+                                                    <label class="custom-file-label" for="faviconUpload">Choose file</label>
+                                                </div>
+                                                <small class="form-text text-muted">Recommended size: 32x32 pixels</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Primary Color</label>
+                                                <div>
+                                                    <span class="color-preview" style="background-color: #c19a6b;"></span>
+                                                    <input type="color" class="form-control-color" value="#c19a6b">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Website Settings</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- Booking Settings -->
+                                    <div class="tab-pane" id="booking">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="checkInTime">Check-in Time</label>
+                                                <input type="time" class="form-control" id="checkInTime" value="15:00">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="checkOutTime">Check-out Time</label>
+                                                <input type="time" class="form-control" id="checkOutTime" value="11:00">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="minStay">Minimum Stay (nights)</label>
+                                                <input type="number" class="form-control" id="minStay" value="1" min="1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="maxStay">Maximum Stay (nights)</label>
+                                                <input type="number" class="form-control" id="maxStay" value="30" min="1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cancellationPolicy">Cancellation Policy</label>
+                                                <select class="form-control" id="cancellationPolicy">
+                                                    <option selected>Flexible (24 hours before check-in)</option>
+                                                    <option>Moderate (72 hours before check-in)</option>
+                                                    <option>Strict (7 days before check-in)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="requireDeposit" checked>
+                                                <label class="form-check-label" for="requireDeposit">Require deposit for booking</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="depositPercentage">Deposit Percentage</label>
+                                                <input type="number" class="form-control" id="depositPercentage" value="30" min="0" max="100">
+                                                <small class="form-text text-muted">Percentage of total amount required as deposit</small>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Booking Settings</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- Payment Settings -->
+                                    <div class="tab-pane" id="payment">
+                                        <form>
+                                            <div class="form-group">
+                                                <label>Accepted Payment Methods</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="visa" checked>
+                                                    <label class="form-check-label" for="visa">Visa</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="mastercard" checked>
+                                                    <label class="form-check-label" for="mastercard">Mastercard</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="amex" checked>
+                                                    <label class="form-check-label" for="amex">American Express</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="paypal">
+                                                    <label class="form-check-label" for="paypal">PayPal</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="bankTransfer">
+                                                    <label class="form-check-label" for="bankTransfer">Bank Transfer</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="taxRate">Tax Rate (%)</label>
+                                                <input type="number" class="form-control" id="taxRate" value="10" min="0" max="50" step="0.1">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="serviceCharge">Service Charge (%)</label>
+                                                <input type="number" class="form-control" id="serviceCharge" value="5" min="0" max="20" step="0.1">
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="includeTaxes" checked>
+                                                <label class="form-check-label" for="includeTaxes">Include taxes in displayed prices</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="paymentGateway">Payment Gateway</label>
+                                                <select class="form-control" id="paymentGateway">
+                                                    <option selected>Stripe</option>
+                                                    <option>PayPal</option>
+                                                    <option>Authorize.net</option>
+                                                    <option>2Checkout</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="apiKey">API Key</label>
+                                                <input type="password" class="form-control" id="apiKey" value="sk_test_51K...">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Payment Settings</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- Email Settings -->
+                                    <div class="tab-pane" id="email">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="smtpHost">SMTP Host</label>
+                                                <input type="text" class="form-control" id="smtpHost" value="smtp.gmail.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="smtpPort">SMTP Port</label>
+                                                <input type="number" class="form-control" id="smtpPort" value="587">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="smtpEncryption">Encryption</label>
+                                                <select class="form-control" id="smtpEncryption">
+                                                    <option selected>TLS</option>
+                                                    <option>SSL</option>
+                                                    <option>None</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="smtpUsername">SMTP Username</label>
+                                                <input type="text" class="form-control" id="smtpUsername" value="noreply@luxuryhaven.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="smtpPassword">SMTP Password</label>
+                                                <input type="password" class="form-control" id="smtpPassword" placeholder="Enter SMTP password">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fromEmail">From Email Address</label>
+                                                <input type="email" class="form-control" id="fromEmail" value="noreply@luxuryhaven.com">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fromName">From Name</label>
+                                                <input type="text" class="form-control" id="fromName" value="Luxury Haven Hotel">
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="emailNotifications" checked>
+                                                <label class="form-check-label" for="emailNotifications">Enable email notifications</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Test Email Configuration</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="email" class="form-control" placeholder="Enter test email address">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-primary" type="button">Send Test Email</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Email Settings</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- Notification Settings -->
+                                    <div class="tab-pane" id="notifications">
+                                        <form>
+                                            <h5>Email Notifications</h5>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="newBookingAdmin" checked>
+                                                <label class="form-check-label" for="newBookingAdmin">Notify admin on new bookings</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="cancellationAdmin" checked>
+                                                <label class="form-check-label" for="cancellationAdmin">Notify admin on booking cancellations</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="paymentAdmin" checked>
+                                                <label class="form-check-label" for="paymentAdmin">Notify admin on successful payments</label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="refundAdmin">
+                                                <label class="form-check-label" for="refundAdmin">Notify admin on refund requests</label>
+                                            </div>
+                                            
+                                            <h5>Guest Notifications</h5>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="bookingConfirmation" checked>
+                                                <label class="form-check-label" for="bookingConfirmation">Send booking confirmation</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="paymentConfirmation" checked>
+                                                <label class="form-check-label" for="paymentConfirmation">Send payment confirmation</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="bookingReminder" checked>
+                                                <label class="form-check-label" for="bookingReminder">Send booking reminder (24h before check-in)</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="checkinInstructions" checked>
+                                                <label class="form-check-label" for="checkinInstructions">Send check-in instructions</label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="feedbackRequest">
+                                                <label class="form-check-label" for="feedbackRequest">Send feedback request after stay</label>
+                                            </div>
+                                            
+                                            <h5>Browser Notifications</h5>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="browserNewBooking" checked>
+                                                <label class="form-check-label" for="browserNewBooking">Show browser notification for new bookings</label>
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <input type="checkbox" class="form-check-input" id="browserCancellation" checked>
+                                                <label class="form-check-label" for="browserCancellation">Show browser notification for cancellations</label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="browserPayment">
+                                                <label class="form-check-label" for="browserPayment">Show browser notification for payments</label>
+                                            </div>
+                                            
+                                            <button type="submit" class="btn btn-primary">Save Notification Settings</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- SEO Settings -->
+                                    <div class="tab-pane" id="seo">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="metaTitleDefault">Default Meta Title</label>
+                                                <input type="text" class="form-control" id="metaTitleDefault" value="Luxury Haven Hotel | Premium Accommodations">
+                                                <small class="form-text text-muted">This will be used when a page-specific title is not set</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="metaDescriptionDefault">Default Meta Description</label>
+                                                <textarea class="form-control" id="metaDescriptionDefault" rows="3">Experience unparalleled luxury at Luxury Haven Hotel. Book your stay for exclusive amenities and premium service.</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="metaKeywords">Meta Keywords</label>
+                                                <textarea class="form-control" id="metaKeywords" rows="2">luxury hotel, premium accommodations, five-star hotel, boutique hotel, vacation stay</textarea>
+                                                <small class="form-text text-muted">Comma separated keywords (Note: Many search engines no longer use keyword meta tags)</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="googleAnalytics">Google Analytics Tracking ID</label>
+                                                <input type="text" class="form-control" id="googleAnalytics" placeholder="UA-XXXXX-Y or G-XXXXXXXX">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="googleVerification">Google Search Console Verification Code</label>
+                                                <input type="text" class="form-control" id="googleVerification" placeholder="Enter verification code">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="structuredData">Enable Structured Data</label>
+                                                <select class="form-control" id="structuredData">
+                                                    <option selected>Yes</option>
+                                                    <option>No</option>
+                                                </select>
+                                                <small class="form-text text-muted">Adds JSON-LD structured data to help search engines understand your content</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="ogImage">Open Graph Image</label>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input" id="ogImage">
+                                                    <label class="custom-file-label" for="ogImage">Choose file</label>
+                                                </div>
+                                                <small class="form-text text-muted">Recommended size: 1200x630 pixels. This image will be displayed when your website is shared on social media.</small>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="generateSitemap" checked>
+                                                <label class="form-check-label" for="generateSitemap">Automatically generate XML sitemap</label>
+                                            </div>
+                                            <div class="form-check mb-3">
+                                                <input type="checkbox" class="form-check-input" id="canonicalUrls" checked>
+                                                <label class="form-check-label" for="canonicalUrls">Automatically generate canonical URLs</label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save SEO Settings</button>
+                                        </form>
+                                    </div>
+                                    
+                                    <!-- Backup Settings -->
+                                    <div class="tab-pane" id="backup">
+                                        <div class="backup-status backup-success">
+                                            <i class="fas fa-check-circle"></i> Last backup was completed successfully on August 15, 2023 at 02:30 AM
+                                        </div>
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="backupFrequency">Backup Frequency</label>
+                                                <select class="form-control" id="backupFrequency">
+                                                    <option>Daily</option>
+                                                    <option selected>Weekly</option>
+                                                    <option>Monthly</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="backupTime">Preferred Backup Time</label>
+                                                <input type="time" class="form-control" id="backupTime" value="02:00">
+                                                <small class="form-text text-muted">Server time is currently: <span id="currentServerTime">August 20, 2023 14:35:22 EST</span></small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="backupRetention">Backup Retention Period</label>
+                                                <select class="form-control" id="backupRetention">
+                                                    <option>7 days</option>
+                                                    <option selected>30 days</option>
+                                                    <option>90 days</option>
+                                                    <option>1 year</option>
+                                                    <option>Forever</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>What to Include in Backups</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="backupDatabase" checked>
+                                                    <label class="form-check-label" for="backupDatabase">Database</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="backupUploads" checked>
+                                                    <label class="form-check-label" for="backupUploads">Uploaded files</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="backupThemes">
+                                                    <label class="form-check-label" for="backupThemes">Themes and templates</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="backupPlugins">
+                                                    <label class="form-check-label" for="backupPlugins">Plugins and extensions</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="backupStorage">Backup Storage</label>
+                                                <select class="form-control" id="backupStorage">
+                                                    <option selected>Server</option>
+                                                    <option>Amazon S3</option>
+                                                    <option>Google Drive</option>
+                                                    <option>Dropbox</option>
+                                                    <option>OneDrive</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group" id="s3Settings" style="display: none;">
+                                                <label for="s3Bucket">S3 Bucket Name</label>
+                                                <input type="text" class="form-control" id="s3Bucket" placeholder="Enter bucket name">
+                                                <label for="s3Region">S3 Region</label>
+                                                <input type="text" class="form-control" id="s3Region" placeholder="Enter region">
+                                                <label for="s3Key">AWS Access Key</label>
+                                                <input type="text" class="form-control" id="s3Key" placeholder="Enter access key">
+                                                <label for="s3Secret">AWS Secret Key</label>
+                                                <input type="password" class="form-control" id="s3Secret" placeholder="Enter secret key">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Immediate Actions</label>
+                                                <div class="d-flex">
+                                                    <button type="button" class="btn btn-outline-primary mr-2" id="createBackupBtn">
+                                                        <i class="fas fa-database mr-1"></i> Create Backup Now
+                                                    </button>
+                                                    <button type="button" class="btn btn-outline-secondary" id="restoreBackupBtn">
+                                                        <i class="fas fa-history mr-1"></i> Restore from Backup
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Backup Settings</button>
+                                        </form>
+                                        <div class="mt-4">
+                                            <h5>Recent Backups</h5>
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>Type</th>
+                                                            <th>Size</th>
+                                                            <th>Status</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2023-08-15 02:30</td>
+                                                            <td>Full</td>
+                                                            <td>245 MB</td>
+                                                            <td><span class="badge badge-success">Completed</span></td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-download"></i></button>
+                                                                <button class="btn btn-sm btn-outline-info"><i class="fas fa-info-circle"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2023-08-08 02:30</td>
+                                                            <td>Full</td>
+                                                            <td>240 MB</td>
+                                                            <td><span class="badge badge-success">Completed</span></td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-download"></i></button>
+                                                                <button class="btn btn-sm btn-outline-info"><i class="fas fa-info-circle"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2023-08-01 02:30</td>
+                                                            <td>Full</td>
+                                                            <td>238 MB</td>
+                                                            <td><span class="badge badge-success">Completed</span></td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-primary"><i class="fas fa-download"></i></button>
+                                                                <button class="btn btn-sm btn-outline-info"><i class="fas fa-info-circle"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Luxury Haven Hotel</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<!-- Custom scripts -->
+<script>
+    $(document).ready(function() {
+        // Handle settings tab navigation
+        $('.settings-nav a').on('click', function(e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+        
+        // Update custom file input label
+        $('.custom-file-input').on('change', function() {
+            let fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+        
+        // Form submission handling
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+            // In a real application, this would send data to the server
+            alert('Settings saved successfully!');
+        });
+        
+        // Handle backup storage selection
+        $('#backupStorage').on('change', function() {
+            if ($(this).val() === 'Amazon S3') {
+                $('#s3Settings').show();
+            } else {
+                $('#s3Settings').hide();
+            }
+        });
+        
+        // Create backup button handler
+        $('#createBackupBtn').on('click', function() {
+            if (confirm('Are you sure you want to create a backup now? This might take several minutes.')) {
+                // Simulate backup process
+                $(this).html('<i class="fas fa-spinner fa-spin"></i> Creating Backup...').prop('disabled', true);
+                
+                setTimeout(function() {
+                    alert('Backup created successfully!');
+                    $('#createBackupBtn').html('<i class="fas fa-database mr-1"></i> Create Backup Now').prop('disabled', false);
+                }, 3000);
+            }
+        });
+        
+        // Restore backup button handler
+        $('#restoreBackupBtn').on('click', function() {
+            alert('In a real application, this would open a modal to select a backup to restore.');
+        });
+        
+        // Update server time every second
+        function updateServerTime() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit', 
+                timeZoneName: 'short' 
+            };
+            $('#currentServerTime').text(now.toLocaleDateString('en-US', options));
+        }
+        
+        updateServerTime();
+        setInterval(updateServerTime, 1000);
+    });
+</script>
+</body>
+</html>

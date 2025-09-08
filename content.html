@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pages Content - Luxury Haven Hotel Admin</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    
+    <style>
+        :root {
+            --primary: #c19a6b;
+            --primary-dark: #a5825d;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+        
+        .brand-link {
+            border-bottom: none !important;
+        }
+        
+       
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .content-header {
+            background-color: #f8f9fa;
+            padding: 20px 0.5rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .card-primary:not(.card-outline) > .card-header {
+            background-color: var(--primary);
+        }
+        
+        .custom-control-input:checked ~ .custom-control-label::before {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .sidebar-dark-primary .nav-sidebar > .nav-item > .nav-link.active, 
+        .sidebar-light-primary .nav-sidebar > .nav-item > .nav-link.active {
+            background-color: var(--primary);
+        }
+        
+        .table thead th {
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .pagination .page-item.active .page-link {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .room-image-preview {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .stats-small-box {
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+        
+        .page-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,0,0,0.125);
+            border-radius: 0.25rem;
+            height: 100%;
+        }
+        
+        .page-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .page-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .page-status-badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-published {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-draft {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-archived {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .page-type-badge {
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        
+        .page-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        .filter-card .card-header {
+            cursor: pointer;
+        }
+        
+        .filter-card .card-body {
+            display: none;
+        }
+        
+        .filter-card .card-body.show {
+            display: block;
+        }
+        
+        .page-action-btn {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .category-filter {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .editor-toolbar {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-bottom: none;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        
+        .editor-toolbar button {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .editor-content {
+            min-height: 300px;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        
+        .template-preview {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .template-preview:hover {
+            border-color: var(--primary);
+            background-color: rgba(193, 154, 107, 0.05);
+        }
+        
+        .template-preview.selected {
+            border-color: var(--primary);
+            background-color: rgba(193, 154, 107, 0.1);
+        }
+        
+        .template-img {
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+ <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="dashboard.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index.html" class="nav-link">View Website</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 new bookings
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard.html" class="brand-link">
+            <span class="brand-text font-weight-light ml-3">Luxury Haven Admin</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="gerad.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin User</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link">
+                            <i class="nav-icon fas fa-bed"></i>
+                            <p>Room Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="bookings.html" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Bookings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="guests.html" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Guests</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="amenities.html" class="nav-link">
+                            <i class="nav-icon fas fa-concierge-bell"></i>
+                            <p>Amenities</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">
+                            <i class="nav-icon fas fa-star"></i>
+                            <p>Testimonials</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="content.html" class="nav-link active">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>Pages Content</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Help & Support</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Pages Content Management</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Pages Content</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Stats boxes -->
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3>18</h3>
+                                <p>Total Pages</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>14</h3>
+                                <p>Published Pages</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>3</h3>
+                                <p>Draft Pages</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-secondary">
+                            <div class="inner">
+                                <h3>1</h3>
+                                <p>Archived Pages</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-archive"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">All Pages</h3>
+                                <div class="card-tools">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addPageModal">
+                                        <i class="fas fa-plus"></i> Add New Page
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <!-- Filters -->
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <div class="card filter-card">
+                                            <div class="card-header" data-toggle="collapse" data-target="#filterCollapse">
+                                                <h3 class="card-title">
+                                                    <i class="fas fa-filter"></i> Filters
+                                                    <i class="fas fa-chevron-down float-right"></i>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body collapse" id="filterCollapse">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Status</label>
+                                                            <select class="form-control" id="statusFilter">
+                                                                <option value="">All Statuses</option>
+                                                                <option value="published">Published</option>
+                                                                <option value="draft">Draft</option>
+                                                                <option value="archived">Archived</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Page Type</label>
+                                                            <select class="form-control" id="typeFilter">
+                                                                <option value="">All Types</option>
+                                                                <option value="informational">Informational</option>
+                                                                <option value="landing">Landing Page</option>
+                                                                <option value="blog">Blog Page</option>
+                                                                <option value="system">System Page</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Sort By</label>
+                                                            <select class="form-control" id="sortFilter">
+                                                                <option value="title">Title (A-Z)</option>
+                                                                <option value="title_desc">Title (Z-A)</option>
+                                                                <option value="date">Date (Newest)</option>
+                                                                <option value="date_old">Date (Oldest)</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Search</label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" placeholder="Search pages...">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-primary">
+                                                                        <i class="fas fa-search"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right">
+                                                        <button class="btn btn-default" id="resetFilters">Reset</button>
+                                                        <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pages Table -->
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Page Title</th>
+                                                <th>URL Slug</th>
+                                                <th>Type</th>
+                                                <th>Last Updated</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-home fa-lg text-primary mr-2"></i>
+                                                        <div>Homepage</div>
+                                                    </div>
+                                                </td>
+                                                <td>/home</td>
+                                                <td><span class="page-type-badge">Landing Page</span></td>
+                                                <td>Aug 18, 2023</td>
+                                                <td><span class="page-status-badge status-published">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info page-action-btn" data-toggle="tooltip" title="View Page">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary page-action-btn" data-toggle="tooltip" title="Edit Content">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning page-action-btn" data-toggle="tooltip" title="SEO Settings">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-building fa-lg text-primary mr-2"></i>
+                                                        <div>About Us</div>
+                                                    </div>
+                                                </td>
+                                                <td>/about</td>
+                                                <td><span class="page-type-badge">Informational</span></td>
+                                                <td>Aug 15, 2023</td>
+                                                <td><span class="page-status-badge status-published">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info page-action-btn" data-toggle="tooltip" title="View Page">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary page-action-btn" data-toggle="tooltip" title="Edit Content">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning page-action-btn" data-toggle="tooltip" title="SEO Settings">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-bed fa-lg text-primary mr-2"></i>
+                                                        <div>Rooms & Suites</div>
+                                                    </div>
+                                                </td>
+                                                <td>/rooms</td>
+                                                <td><span class="page-type-badge">Landing Page</span></td>
+                                                <td>Aug 20, 2023</td>
+                                                <td><span class="page-status-badge status-published">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info page-action-btn" data-toggle="tooltip" title="View Page">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary page-action-btn" data-toggle="tooltip" title="Edit Content">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning page-action-btn" data-toggle="tooltip" title="SEO Settings">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-concierge-bell fa-lg text-primary mr-2"></i>
+                                                        <div>Amenities</div>
+                                                    </div>
+                                                </td>
+                                                <td>/amenities</td>
+                                                <td><span class="page-type-badge">Informational</span></td>
+                                                <td>Aug 12, 2023</td>
+                                                <td><span class="page-status-badge status-published">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info page-action-btn" data-toggle="tooltip" title="View Page">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary page-action-btn" data-toggle="tooltip" title="Edit Content">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning page-action-btn" data-toggle="tooltip" title="SEO Settings">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-images fa-lg text-primary mr-2"></i>
+                                                        <div>Gallery</div>
+                                                    </div>
+                                                </td>
+                                                <td>/gallery</td>
+                                                <td><span class="page-type-badge">Informational</span></td>
+                                                <td>Aug 10, 2023</td>
+                                                <td><span class="page-status-badge status-published">Published</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info page-action-btn" data-toggle="tooltip" title="View Page">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary page-action-btn" data-toggle="tooltip" title="Edit Content">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning page-action-btn" data-toggle="tooltip" title="SEO Settings">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-newspaper fa-lg text-primary mr-2"></i>
+                                                        <div>Special Offers</div>
+                                                    </div>
+                                                </td>
+                                                <td>/offers</td>
+                                                <td><span class="page-type-badge">Landing Page</span></td>
+                                                <td>Aug 22, 2023</td>
+                                                <td><span class="page-status-badge status-draft">Draft</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info page-action-btn" data-toggle="tooltip" title="View Page">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary page-action-btn" data-toggle="tooltip" title="Edit Content">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success page-action-btn" data-toggle="tooltip" title="Publish">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-file-alt fa-lg text-primary mr-2"></i>
+                                                        <div>Terms & Conditions</div>
+                                                    </div>
+                                                </td>
+                                                <td>/terms</td>
+                                                <td><span class="page-type-badge">System Page</span></td>
+                                                <td>Jul 28, 2023</td>
+                                                <td><span class="page-status-badge status-archived">Archived</span></td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info page-action-btn" data-toggle="tooltip" title="View Page">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary page-action-btn" data-toggle="tooltip" title="Edit Content">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success page-action-btn" data-toggle="tooltip" title="Restore">
+                                                        <i class="fas fa-undo"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Pagination -->
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div class="dataTables_info">Showing 1 to 7 of 18 entries</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="pagination pagination-sm float-right">
+                                            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Luxury Haven Hotel</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- Add Page Modal -->
+<div class="modal fade" id="addPageModal" tabindex="-1" role="dialog" aria-labelledby="addPageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPageModalLabel">Add New Page</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addPageForm">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="pageTitle">Page Title</label>
+                                <input type="text" class="form-control" id="pageTitle" placeholder="Enter page title">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="pageTemplate">Template</label>
+                                <select class="form-control" id="pageTemplate">
+                                    <option value="default">Default Template</option>
+                                    <option value="landing">Landing Page</option>
+                                    <option value="fullwidth">Full Width</option>
+                                    <option value="sidebar">With Sidebar</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pageSlug">URL Slug</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">https://luxuryhaven.com/</span>
+                            </div>
+                            <input type="text" class="form-control" id="pageSlug" placeholder="page-url">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pageContent">Page Content</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-bold"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-italic"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-underline"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-list-ol"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-link"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-image"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-video"></i></button>
+                        </div>
+                        <div class="editor-content" contenteditable="true">
+                            <p>Start typing your content here...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="pageStatus">Status</label>
+                                <select class="form-control" id="pageStatus">
+                                    <option value="published">Published</option>
+                                    <option value="draft">Draft</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="pageType">Page Type</label>
+                                <select class="form-control" id="pageType">
+                                    <option value="informational">Informational</option>
+                                    <option value="landing">Landing Page</option>
+                                    <option value="blog">Blog Page</option>
+                                    <option value="system">System Page</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pageMetaDescription">Meta Description</label>
+                        <textarea class="form-control" id="pageMetaDescription" rows="2" placeholder="Brief description for search engines"></textarea>
+                    </div>
+                    
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="addToNavigation">
+                        <label class="form-check-label" for="addToNavigation">Add to main navigation menu</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="savePage">Save Page</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Page Modal -->
+<div class="modal fade" id="editPageModal" tabindex="-1" role="dialog" aria-labelledby="editPageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editPageModalLabel">Edit Page Content</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editPageForm">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="editPageTitle">Page Title</label>
+                                <input type="text" class="form-control" id="editPageTitle" value="About Us">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="editPageTemplate">Template</label>
+                                <select class="form-control" id="editPageTemplate">
+                                    <option value="default" selected>Default Template</option>
+                                    <option value="landing">Landing Page</option>
+                                    <option value="fullwidth">Full Width</option>
+                                    <option value="sidebar">With Sidebar</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editPageSlug">URL Slug</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">https://luxuryhaven.com/</span>
+                            </div>
+                            <input type="text" class="form-control" id="editPageSlug" value="about">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editPageContent">Page Content</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-bold"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-italic"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-underline"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-list-ol"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-link"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-image"></i></button>
+                            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-video"></i></button>
+                        </div>
+                        <div class="editor-content" contenteditable="true">
+                            <h2>Welcome to Luxury Haven Hotel</h2>
+                            <p>Nestled in the heart of the city, Luxury Haven Hotel offers an unparalleled experience of comfort and elegance. Since our establishment in 2005, we have been committed to providing exceptional service and creating memorable experiences for our guests.</p>
+                            <h3>Our Mission</h3>
+                            <p>To provide exceptional hospitality experiences that exceed our guests' expectations through personalized service, attention to detail, and a commitment to excellence.</p>
+                            <h3>Our Values</h3>
+                            <ul>
+                                <li>Excellence in service</li>
+                                <li>Respect for all individuals</li>
+                                <li>Integrity in all dealings</li>
+                                <li>Innovation in hospitality</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="editPageStatus">Status</label>
+                                <select class="form-control" id="editPageStatus">
+                                    <option value="published" selected>Published</option>
+                                    <option value="draft">Draft</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="editPageType">Page Type</label>
+                                <select class="form-control" id="editPageType">
+                                    <option value="informational" selected>Informational</option>
+                                    <option value="landing">Landing Page</option>
+                                    <option value="blog">Blog Page</option>
+                                    <option value="system">System Page</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editPageMetaDescription">Meta Description</label>
+                        <textarea class="form-control" id="editPageMetaDescription" rows="2">Learn about Luxury Haven Hotel's history, mission, and values. Discover what makes our luxury hotel the perfect choice for discerning travelers.</textarea>
+                    </div>
+                    
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="editAddToNavigation" checked>
+                        <label class="form-check-label" for="editAddToNavigation">Display in main navigation menu</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="updatePage">Update Page</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<!-- Custom scripts -->
+<script>
+    $(document).ready(function() {
+        // Initialize tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+        
+        // Toggle filter section
+        $('.filter-card .card-header').click(function() {
+            $(this).find('.fa-chevron-down').toggleClass('fa-rotate-180');
+        });
+        
+        // Apply filters button
+        $('#applyFilters').click(function() {
+            const status = $('#statusFilter').val();
+            const type = $('#typeFilter').val();
+            const sortBy = $('#sortFilter').val();
+            
+            // In a real application, this would send an AJAX request to filter data
+            alert(`Filters applied:\nStatus: ${status || 'All'}\nType: ${type || 'All'}\nSort By: ${sortBy}`);
+            
+            // Close the filter section
+            $('#filterCollapse').collapse('hide');
+        });
+        
+        // Reset filters button
+        $('#resetFilters').click(function() {
+            $('#statusFilter').val('');
+            $('#typeFilter').val('');
+            $('#sortFilter').val('title');
+        });
+        
+        // Page action buttons
+        $('.page-action-btn').click(function() {
+            const action = $(this).find('i').attr('class');
+            const pageTitle = $(this).closest('tr').find('td:first div:last').text();
+            
+            if (action.includes('fa-eye')) {
+                alert(`View page: ${pageTitle}`);
+            } else if (action.includes('fa-edit')) {
+                $('#editPageModal').modal('show');
+            } else if (action.includes('fa-search')) {
+                alert(`Edit SEO settings for: ${pageTitle}`);
+            } else if (action.includes('fa-check')) {
+                alert(`Publish page: ${pageTitle}`);
+            } else if (action.includes('fa-undo')) {
+                alert(`Restore page: ${pageTitle}`);
+            }
+        });
+        
+        // Generate slug from title
+        $('#pageTitle').on('keyup', function() {
+            const title = $(this).val();
+            const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            $('#pageSlug').val(slug);
+        });
+        
+        // Save new page
+        $('#savePage').click(function() {
+            const title = $('#pageTitle').val();
+            const slug = $('#pageSlug').val();
+            
+            if (title && slug) {
+                alert(`Page "${title}" has been created successfully!`);
+                $('#addPageModal').modal('hide');
+                $('#addPageForm')[0].reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Update page
+        $('#updatePage').click(function() {
+            const title = $('#editPageTitle').val();
+            
+            if (title) {
+                alert(`Page "${title}" has been updated successfully!`);
+                $('#editPageModal').modal('hide');
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Simple editor functionality
+        $('.editor-toolbar button').click(function() {
+            const command = $(this).find('i').attr('class');
+            alert(`In a real application, this would execute the ${command} command on the editor`);
+        });
+    });
+</script>
+</body>
+</html>
