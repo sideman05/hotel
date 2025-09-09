@@ -1,126 +1,148 @@
 <?php
 header('Content-Type: application/json');
-$conn = new mysqli("localhost", "root", "", "hotel_management");
-if ($conn->connect_error) {
-    echo json_encode(["success" => false, "message" => "DB connection failed: " . $conn->connect_error]);
+
+$mysqli = new mysqli("localhost", "root", "", "hotel_management"); // adjust DB
+if ($mysqli->connect_errno) {
+    echo json_encode(['success'=>false,'message'=>$mysqli->connect_error]);
     exit;
 }
 
-/**
- * Helper function to handle file uploads
- */
-function uploadImages($files) {
-    $uploaded_files = [];
-    if (!empty($files['name'][0])) {
-        foreach ($files['name'] as $key => $filename) {
-            $target = '../uploads/' . time() . '_' . basename($filename);
-            if (move_uploaded_file($files['tmp_name'][$key], $target)) {
-                $uploaded_files[] = basename($target);
+$action = $_REQUEST['action'] ?? '';
+
+switch($action) {
+    case 'create':
+        $name = $_POST['name'] ?? '';
+        $type = $_POST['type'] ?? '';
+        $price = $_POST['price'] ?? 0;
+        $capacity = $_POST['capacity'] ?? '';
+        $status = $_POST['status'] ?? 'Available';
+        $description = $_POST['description'] ?? '';
+        $features = $_POST['features'] ?? '[]';
+        
+        // Handle file uploads
+        $images = [];
+        $uploadDir = __DIR__ . '/uploads/';
+        $uploadDirRel = 'uploads/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+        if (!empty($_FILES['images']['name'][0])) {
+            foreach ($_FILES['images']['name'] as $key => $nameFile) {
+                $tmpName = $_FILES['images']['tmp_name'][$key];
+                $fileType = mime_content_type($tmpName);
+                if (strpos($fileType, 'image/') !== 0) {
+                    echo json_encode(['success'=>false,'message'=>'Only image files are allowed.']);
+                    exit;
+                }
+                $newName = time().'_'.$nameFile;
+                $targetPath = $uploadDir . $newName;
+                if (!move_uploaded_file($tmpName, $targetPath)) {
+                    $err = error_get_last();
+                    echo json_encode([
+                        'success'=>false,
+                        'message'=>'Failed to upload image: '.$nameFile,
+                        'target'=>$targetPath,
+                        'is_writable'=>is_writable($uploadDir),
+                        'error'=>$err
+                    ]);
+                    exit;
+                }
+                $images[] = $newName;
             }
         }
-    }
-    return $uploaded_files;
+
+    $stmt = $mysqli->prepare("INSERT INTO rooms (name,type,price,capacity,status,description,features,images) VALUES (?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("ssisssss", $name, $type, $price, $capacity, $status, $description, $features, json_encode($images));
+        if ($stmt->execute()) {
+            echo json_encode(['success'=>true]);
+        } else {
+            echo json_encode(['success'=>false,'message'=>$stmt->error]);
+        }
+        break;
+
+    case 'read':
+        $res = $mysqli->query("SELECT * FROM rooms ORDER BY id DESC");
+        $rooms = [];
+        while($row = $res->fetch_assoc()) $rooms[] = $row;
+        echo json_encode($rooms);
+        break;
+
+    case 'readOne':
+        $id = $_GET['id'] ?? 0;
+        $stmt = $mysqli->prepare("SELECT * FROM rooms WHERE id=?");
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+        $res = $stmt->get_result()->fetch_assoc();
+        echo json_encode($res);
+        break;
+
+    case 'update':
+        $id = $_POST['id'] ?? 0;
+        $name = $_POST['name'] ?? '';
+        $type = $_POST['type'] ?? '';
+        $price = $_POST['price'] ?? 0;
+        $capacity = $_POST['capacity'] ?? '';
+        $status = $_POST['status'] ?? 'Available';
+        $description = $_POST['description'] ?? '';
+        $features = $_POST['features'] ?? '[]';
+
+        // Handle new images
+        $images = [];
+        $uploadDir = __DIR__ . '/uploads/';
+        $uploadDirRel = 'uploads/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+        if (!empty($_FILES['images']['name'][0])) {
+            foreach ($_FILES['images']['name'] as $key => $nameFile) {
+                $tmpName = $_FILES['images']['tmp_name'][$key];
+                $fileType = mime_content_type($tmpName);
+                if (strpos($fileType, 'image/') !== 0) {
+                    echo json_encode(['success'=>false,'message'=>'Only image files are allowed.']);
+                    exit;
+                }
+                $newName = time().'_'.$nameFile;
+                $targetPath = $uploadDir . $newName;
+                if (!move_uploaded_file($tmpName, $targetPath)) {
+                    $err = error_get_last();
+                    echo json_encode([
+                        'success'=>false,
+                        'message'=>'Failed to upload image: '.$nameFile,
+                        'target'=>$targetPath,
+                        'is_writable'=>is_writable($uploadDir),
+                        'error'=>$err
+                    ]);
+                    exit;
+                }
+                $images[] = $newName;
+            }
+            $imagesJSON = json_encode($images);
+            $stmt = $mysqli->prepare("UPDATE rooms SET name=?, type=?, price=?, capacity=?, status=?, description=?, features=?, images=? WHERE id=?");
+            $stmt->bind_param("ssisssssi",$name,$type,$price,$capacity,$status,$description,$features,$imagesJSON,$id);
+        } else {
+            $stmt = $mysqli->prepare("UPDATE rooms SET name=?, type=?, price=?, capacity=?, status=?, description=?, features=? WHERE id=?");
+            $stmt->bind_param("ssissssi",$name,$type,$price,$capacity,$status,$description,$features,$id);
+        }
+        if($stmt->execute()){
+            echo json_encode(['success'=>true]);
+        } else {
+            echo json_encode(['success'=>false,'message'=>$stmt->error]);
+        }
+        break;
+
+    case 'delete':
+        $id = $_POST['id'] ?? 0;
+        $stmt = $mysqli->prepare("DELETE FROM rooms WHERE id=?");
+        $stmt->bind_param("i",$id);
+        if($stmt->execute()){
+            echo json_encode(['success'=>true]);
+        } else {
+            echo json_encode(['success'=>false,'message'=>$stmt->error]);
+        }
+        break;
+
+    default:
+        echo json_encode(['success'=>false,'message'=>'Invalid action']);
+        break;
 }
-
-/**
- * READ ALL
- */
-if (isset($_GET['action']) && $_GET['action'] == 'read') {
-    $result = $conn->query("SELECT * FROM rooms ORDER BY id DESC");
-    $rooms = [];
-    while ($row = $result->fetch_assoc()) {
-        $row['features'] = $row['features'] ?: '[]';
-        $row['images'] = $row['images'] ?: '[]';
-        $rooms[] = $row;
-    }
-    echo json_encode($rooms);
-    exit;
-}
-
-/**
- * READ ONE
- */
-if (isset($_GET['action']) && $_GET['action'] == 'readOne' && isset($_GET['id'])) {
-    $id = intval($_GET['id']);
-    $result = $conn->query("SELECT * FROM rooms WHERE id=$id");
-    $room = $result->fetch_assoc();
-    if ($room) {
-        $room['features'] = $room['features'] ?: '[]';
-        $room['images'] = $room['images'] ?: '[]';
-    }
-    echo json_encode($room);
-    exit;
-}
-
-/**
- * CREATE
- */
-if (isset($_POST['action']) && $_POST['action'] == 'create') {
-    $name = $conn->real_escape_string($_POST['name']);
-    $type = $conn->real_escape_string($_POST['type']);
-    $price = floatval($_POST['price']);
-    $capacity = $conn->real_escape_string($_POST['capacity']);
-    $status = $conn->real_escape_string($_POST['status']);
-    $description = $conn->real_escape_string($_POST['description']);
-    $features = $_POST['features'] ?? '[]';
-
-    $uploaded_files = uploadImages($_FILES['images']);
-    $images = json_encode($uploaded_files);
-
-    $sql = "INSERT INTO rooms (name, type, price, capacity, status, description, features, images)
-            VALUES ('$name', '$type', $price, '$capacity', '$status', '$description', '$features', '$images')";
-    if ($conn->query($sql)) {
-        echo json_encode(["success" => true]);
-    } else {
-        echo json_encode(["success" => false, "message" => $conn->error]);
-    }
-    exit;
-}
-
-/**
- * UPDATE
- */
-if (isset($_POST['action']) && $_POST['action'] == 'update') {
-    $id = intval($_POST['id']);
-    $name = $conn->real_escape_string($_POST['name']);
-    $type = $conn->real_escape_string($_POST['type']);
-    $price = floatval($_POST['price']);
-    $capacity = $conn->real_escape_string($_POST['capacity']);
-    $status = $conn->real_escape_string($_POST['status']);
-    $description = $conn->real_escape_string($_POST['description']);
-    $features = $_POST['features'] ?? '[]';
-
-    // If new images uploaded, replace
-    $uploaded_files = uploadImages($_FILES['images']);
-    if (!empty($uploaded_files)) {
-        $images = json_encode($uploaded_files);
-        $sql = "UPDATE rooms SET 
-                    name='$name', type='$type', price=$price, capacity='$capacity', 
-                    status='$status', description='$description', features='$features', images='$images'
-                WHERE id=$id";
-    } else {
-        $sql = "UPDATE rooms SET 
-                    name='$name', type='$type', price=$price, capacity='$capacity', 
-                    status='$status', description='$description', features='$features'
-                WHERE id=$id";
-    }
-
-    if ($conn->query($sql)) {
-        echo json_encode(["success" => true]);
-    } else {
-        echo json_encode(["success" => false, "message" => $conn->error]);
-    }
-    exit;
-}
-
-/**
- * DELETE
- */
-if (isset($_POST['action']) && $_POST['action'] == 'delete') {
-    $id = intval($_POST['id']);
-    $conn->query("DELETE FROM rooms WHERE id=$id");
-    echo json_encode(["success" => true]);
-    exit;
-}
-
-echo json_encode(["success" => false, "message" => "Invalid request"]);
+?>

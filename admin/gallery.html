@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="/admin/styles/gallery.css">
+    <link rel="stylesheet" href="styles/gallery.css">
   
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -30,7 +30,7 @@
                 <a href="dashboard.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.html" class="nav-link">View Website</a>
+                <a href="../index.html" class="nav-link">View Website</a>
             </li>
         </ul>
 
@@ -207,7 +207,7 @@
                                             <span class="info-box-icon bg-info"><i class="fas fa-image"></i></span>
                                             <div class="info-box-content">
                                                 <span class="info-box-text">Total Images</span>
-                                                <span class="info-box-number">187</span>
+                                                <span class="info-box-number" id="stat-total">0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@
                                             <span class="info-box-icon bg-success"><i class="fas fa-bed"></i></span>
                                             <div class="info-box-content">
                                                 <span class="info-box-text">Room Photos</span>
-                                                <span class="info-box-number">64</span>
+                                                <span class="info-box-number" id="stat-rooms">0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -225,7 +225,7 @@
                                             <span class="info-box-icon bg-warning"><i class="fas fa-utensils"></i></span>
                                             <div class="info-box-content">
                                                 <span class="info-box-text">Dining Photos</span>
-                                                <span class="info-box-number">42</span>
+                                                <span class="info-box-number" id="stat-dining">0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -234,7 +234,7 @@
                                             <span class="info-box-icon bg-primary"><i class="fas fa-spa"></i></span>
                                             <div class="info-box-content">
                                                 <span class="info-box-text">Amenity Photos</span>
-                                                <span class="info-box-number">81</span>
+                                                <span class="info-box-number" id="stat-amenities">0</span>
                                             </div>
                                         </div>
                                     </div>
@@ -243,6 +243,24 @@
                         </div>
                     </div>
                 </div>
+    <!-- Image Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="previewModalLabel">Image Preview</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="previewModalImg" src="" class="img-fluid mb-3" style="max-height:400px;">
+                    <h5 id="previewModalTitle"></h5>
+                    <p id="previewModalDesc" class="text-muted"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
                 <div class="row mb-4">
                     <div class="col-12">
@@ -272,197 +290,7 @@
                 </div>
 
                 <div class="row" id="gallery-container">
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="rooms">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Deluxe Room">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Deluxe Room <span class="category-badge">Rooms</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Oct 12, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured1">
-                                    <label class="form-check-label" for="featured1">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="dining">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Main Restaurant">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Main Restaurant <span class="category-badge">Dining</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Oct 10, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured2" checked>
-                                    <label class="form-check-label" for="featured2">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="amenities">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNwYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Spa Center">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Spa Center <span class="category-badge">Amenities</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Oct 5, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured3" checked>
-                                    <label class="form-check-label" for="featured3">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="exterior">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGhvdGVsJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Hotel Exterior">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Hotel Exterior <span class="category-badge">Exterior</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Oct 3, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured4" checked>
-                                    <label class="form-check-label" for="featured4">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="events">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1580554530778-ca36943938b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHdlZGRpbmclMjByZWNlcHRpb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Wedding Event">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Wedding Event <span class="category-badge">Events</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Sep 28, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured5">
-                                    <label class="form-check-label" for="featured5">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="rooms">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Presidential Suite">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Presidential Suite <span class="category-badge">Rooms</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Sep 25, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured6" checked>
-                                    <label class="form-check-label" for="featured6">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="amenities">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8aG90ZWwlMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Pool Area">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Pool Area <span class="category-badge">Amenities</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Sep 20, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured7" checked>
-                                    <label class="form-check-label" for="featured7">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Gallery Item -->
-                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="dining">
-                        <div class="card gallery-card">
-                            <div class="gallery-img-container">
-                                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" class="gallery-img" alt="Gourmet Dining">
-                                <div class="gallery-overlay">
-                                    <div class="gallery-actions">
-                                        <button class="btn btn-sm btn-light"><i class="fas fa-eye"></i></button>
-                                        <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class="card-title">Gourmet Dining <span class="category-badge">Dining</span></h6>
-                                <p class="card-text text-muted small">Uploaded: Sep 15, 2023</p>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="featured8">
-                                    <label class="form-check-label" for="featured8">Featured on homepage</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Gallery items will be rendered here by JS -->
                 </div>
 
                 <div class="row">
@@ -636,15 +464,150 @@
             });
         }
         
-        // Upload button handler
+        // Upload button handler (AJAX)
         $('#uploadButton').on('click', function() {
-            // In a real application, this would upload the images to the server
-            alert('Images uploaded successfully!');
-            $('#uploadModal').modal('hide');
-            $('#uploadForm')[0].reset();
-            $('#imagePreview').empty();
-            $('.custom-file-label').html('Choose images');
+            var files = $('#galleryUpload')[0].files;
+            if (!files.length) {
+                alert('Please select at least one image.');
+                return;
+            }
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append('images[]', files[i]);
+            }
+            formData.append('category', $('#imageCategory').val());
+            formData.append('title', $('#imageTitle').val());
+            formData.append('description', $('#imageDescription').val());
+            formData.append('featured', $('#featuredUpload').is(':checked') ? 1 : 0);
+            formData.append('action', 'upload');
+            $('#uploadButton').prop('disabled', true).text('Uploading...');
+            $.ajax({
+                url: 'gallery_crud.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    $('#uploadButton').prop('disabled', false).text('Upload Images');
+                    if (res.success) {
+                        $('#uploadModal').modal('hide');
+                        $('#uploadForm')[0].reset();
+                        $('#imagePreview').empty();
+                        $('.custom-file-label').html('Choose images');
+                        fetchGallery();
+                    } else {
+                        alert(res.message || 'Upload failed.');
+                    }
+                },
+                error: function(xhr) {
+                    $('#uploadButton').prop('disabled', false).text('Upload Images');
+                    alert('Upload failed.');
+                }
+            });
         });
+
+
+        // Fetch and render gallery images
+        function fetchGallery() {
+            $.ajax({
+                url: 'gallery_crud.php',
+                type: 'GET',
+                data: {action: 'list'},
+                dataType: 'json',
+                success: function(data) {
+                    renderGallery(data);
+                    updateGalleryStats(data);
+                },
+                error: function() {
+                    $('#gallery-container').html('<div class="col-12 text-center text-danger">Failed to load gallery.</div>');
+                }
+            });
+        }
+
+        // Render gallery items
+        function renderGallery(items) {
+            var html = '';
+            if (!items.length) {
+                html = '<div class="col-12 text-center text-muted">No images found.</div>';
+            } else {
+                items.forEach(function(item) {
+                    var imgSrc = 'gallery_uploads/' + item.filename;
+                    var featured = item.featured == 1 ? 'checked' : '';
+                    var cat = item.category.charAt(0).toUpperCase() + item.category.slice(1);
+                    html += `
+                    <div class="col-md-4 col-lg-3 mb-4 gallery-item" data-category="${item.category}" data-id="${item.id}">
+                        <div class="card gallery-card">
+                            <div class="gallery-img-container">
+                                <img src="${imgSrc}" class="gallery-img" alt="${item.title}">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-actions">
+                                        <button class="btn btn-sm btn-light view-btn" data-id="${item.id}" data-img="${imgSrc}" data-title="${item.title || ''}" data-desc="${item.description || ''}"><i class="fas fa-eye"></i></button>
+                                        <!--<button class="btn btn-sm btn-info edit-btn" data-id="${item.id}"><i class="fas fa-edit"></i></button>-->
+                                        <button class="btn btn-sm btn-danger delete-btn" data-id="${item.id}"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">${item.title || ''} <span class="category-badge">${cat}</span></h6>
+                                <p class="card-text text-muted small">Uploaded: ${item.uploaded_at ? item.uploaded_at.split(' ')[0] : ''}</p>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" disabled ${featured}>
+                                    <label class="form-check-label">Featured on homepage</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                });
+            }
+            $('#gallery-container').html(html);
+        }
+
+        // Update gallery stats
+        function updateGalleryStats(items) {
+            var total = items.length;
+            var rooms = 0, dining = 0, amenities = 0;
+            items.forEach(function(item) {
+                if (item.category === 'rooms') rooms++;
+                if (item.category === 'dining') dining++;
+                if (item.category === 'amenities') amenities++;
+            });
+            $('#stat-total').text(total);
+            $('#stat-rooms').text(rooms);
+            $('#stat-dining').text(dining);
+            $('#stat-amenities').text(amenities);
+        }
+
+        // Preview image modal
+        $(document).on('click', '.view-btn', function() {
+            var img = $(this).data('img');
+            var title = $(this).data('title');
+            var desc = $(this).data('desc');
+            $('#previewModalImg').attr('src', img);
+            $('#previewModalTitle').text(title);
+            $('#previewModalDesc').text(desc);
+            $('#previewModal').modal('show');
+        });
+
+        // Delete gallery image
+        $(document).on('click', '.delete-btn', function() {
+            if (!confirm('Delete this image?')) return;
+            var id = $(this).data('id');
+            $.ajax({
+                url: 'gallery_crud.php',
+                type: 'POST',
+                data: {action: 'delete', id: id},
+                dataType: 'json',
+                success: function(res) {
+                    if (res.success) fetchGallery();
+                    else alert(res.message || 'Delete failed.');
+                },
+                error: function() { alert('Delete failed.'); }
+            });
+        });
+
+        // Initial fetch
+        fetchGallery();
         
         // Drag and drop functionality
         const dropZone = document.getElementById('dropZone');

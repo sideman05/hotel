@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Luxury Haven Hotel Admin</title>
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="styles/testmonials.css">
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+    <!-- Navbar -->
+  <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="dashboard.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="index.html" class="nav-link">View Website</a>
+            </li>
+        </ul>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-item dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 new bookings
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="dashboard.html" class="brand-link">
+            <span class="brand-text font-weight-light ml-3">Luxury Haven Admin</span>
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="gerad.jpg" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">Admin User</a>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="rooms.html" class="nav-link">
+                            <i class="nav-icon fas fa-bed"></i>
+                            <p>Room Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="bookings.html" class="nav-link">
+                            <i class="nav-icon fas fa-calendar-check"></i>
+                            <p>Bookings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="guests.html" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
+                            <p>Guests</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="amenities.html" class="nav-link">
+                            <i class="nav-icon fas fa-concierge-bell"></i>
+                            <p>Amenities</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">
+                            <i class="nav-icon fas fa-image"></i>
+                            <p>Gallery</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link active">
+                            <i class="nav-icon fas fa-star"></i>
+                            <p>Testimonials</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="content.html" class="nav-link">
+                            <i class="nav-icon fas fa-file-alt"></i>
+                            <p>Pages Content</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link ">
+                            <i class="nav-icon fas fa-cog"></i>
+                            <p>Settings</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="help.html" class="nav-link">
+                            <i class="nav-icon fas fa-question-circle"></i>
+                            <p>Help & Support</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Testimonials Management</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Testimonials</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Stats boxes -->
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-info">
+                            <div class="inner">
+                                <h3 id="stat-total">0</h3>
+                                <p>Total Testimonials</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3 id="stat-approved">0</h3>
+                                <p>Approved Testimonials</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3 id="stat-pending">0</h3>
+                                <p>Pending Review</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3 id="stat-featured">0</h3>
+                                <p>Featured Testimonials</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">All Testimonials</h3>
+                                <div class="card-tools">
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#addTestimonialModal">
+                                        <i class="fas fa-plus"></i> Add New Testimonial
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <!-- Filters -->
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <div class="card filter-card">
+                                            <div class="card-header" data-toggle="collapse" data-target="#filterCollapse">
+                                                <h3 class="card-title">
+                                                    <i class="fas fa-filter"></i> Filters
+                                                    <i class="fas fa-chevron-down float-right"></i>
+                                                </h3>
+                                            </div>
+                                            <div class="card-body collapse" id="filterCollapse">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Status</label>
+                                                            <select class="form-control" id="statusFilter">
+                                                                <option value="">All Statuses</option>
+                                                                <option value="approved">Approved</option>
+                                                                <option value="pending">Pending</option>
+                                                                <option value="rejected">Rejected</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Rating</label>
+                                                            <select class="form-control" id="ratingFilter">
+                                                                <option value="">All Ratings</option>
+                                                                <option value="5">5 Stars</option>
+                                                                <option value="4">4 Stars</option>
+                                                                <option value="3">3 Stars</option>
+                                                                <option value="2">2 Stars</option>
+                                                                <option value="1">1 Star</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Sort By</label>
+                                                            <select class="form-control" id="sortFilter">
+                                                                <option value="newest">Newest First</option>
+                                                                <option value="oldest">Oldest First</option>
+                                                                <option value="rating_high">Highest Rating</option>
+                                                                <option value="rating_low">Lowest Rating</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label>Search</label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" placeholder="Search testimonials...">
+                                                                <div class="input-group-append">
+                                                                    <button class="btn btn-primary">
+                                                                        <i class="fas fa-search"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-right">
+                                                        <button class="btn btn-default" id="resetFilters">Reset</button>
+                                                        <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Status Filter Buttons -->
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <div class="d-flex flex-wrap">
+                                            <button class="btn btn-outline-primary status-filter active" data-status="all">
+                                                All Testimonials
+                                            </button>
+                                            <button class="btn btn-outline-primary status-filter" data-status="approved">
+                                                Approved
+                                            </button>
+                                            <button class="btn btn-outline-primary status-filter" data-status="pending">
+                                                Pending Review
+                                            </button>
+                                            <button class="btn btn-outline-primary status-filter" data-status="rejected">
+                                                Rejected
+                                            </button>
+                                            <button class="btn btn-outline-primary status-filter" data-status="featured">
+                                                Featured
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Testimonials Grid View -->
+                                <div class="row" id="testimonialsGrid">
+                                    <!-- Dynamic testimonials will be rendered here by JS -->
+                                </div>
+
+                                <!-- Testimonials Table View (Hidden by default) -->
+                                <div class="table-responsive d-none" id="testimonialsTable">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Guest</th>
+                                                <th>Rating</th>
+                                                <th>Stay Details</th>
+                                                <th>Testimonial Excerpt</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Guest" width="40" height="40" class="rounded-circle mr-2">
+                                                        <div>Sarah Johnson</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="star-rating" style="font-size: 14px;">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </td>
+                                                <td>Presidential Suite, August 2023</td>
+                                                <td>The most luxurious hotel experience I've ever had! The staff went above and beyond...</td>
+                                                <td><span class="testimonial-status-badge status-approved">Approved</span> <span class="featured-badge">Featured</span></td>
+                                                <td>Aug 18, 2023</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-warning testimonial-action-btn" data-toggle="tooltip" title="Unfeature">
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Guest" width="40" height="40" class="rounded-circle mr-2">
+                                                        <div>Michael Thompson</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="star-rating" style="font-size: 14px;">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                </td>
+                                                <td>Executive Suite, July 2023</td>
+                                                <td>Business travel made enjoyable! The executive floor amenities were perfect...</td>
+                                                <td><span class="testimonial-status-badge status-approved">Approved</span></td>
+                                                <td>Jul 22, 2023</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success testimonial-action-btn" data-toggle="tooltip" title="Feature">
+                                                        <i class="fas fa-star"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Guest" width="40" height="40" class="rounded-circle mr-2">
+                                                        <div>Jennifer Lee</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="star-rating" style="font-size: 14px;">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                    </div>
+                                                </td>
+                                                <td>Deluxe Room, August 2023</td>
+                                                <td>Beautiful hotel with excellent service. The spa treatments were incredible...</td>
+                                                <td><span class="testimonial-status-badge status-pending">Pending</span></td>
+                                                <td>Aug 20, 2023</td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                    <button class="btn btn-sm btn-success testimonial-action-btn" data-toggle="tooltip" title="Approve">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- View Toggle -->
+                                <div class="row mt-3">
+                                    <div class="col-md-12 text-center">
+                                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                            <label class="btn btn-outline-primary active">
+                                                <input type="radio" name="viewOptions" id="gridView" autocomplete="off" checked>
+                                                <i class="fas fa-th-large"></i> Grid View
+                                            </label>
+                                            <label class="btn btn-outline-primary">
+                                                <input type="radio" name="viewOptions" id="tableView" autocomplete="off">
+                                                <i class="fas fa-table"></i> Table View
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pagination -->
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div class="dataTables_info">Showing 1 to 6 of 127 entries</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="pagination pagination-sm float-right">
+                                            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+                                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Luxury Haven Hotel</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- Add Testimonial Modal -->
+<div class="modal fade" id="addTestimonialModal" tabindex="-1" role="dialog" aria-labelledby="addTestimonialModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addTestimonialModalLabel">Add New Testimonial</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addTestimonialForm">
+                    <div class="form-group">
+                        <label for="guestName">Guest Name</label>
+                        <input type="text" class="form-control" id="guestName" placeholder="Enter guest name">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="stayDate">Stay Date</label>
+                                <input type="month" class="form-control" id="stayDate">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="roomType">Room Type</label>
+                                <select class="form-control" id="roomType">
+                                    <option value="">Select Room Type</option>
+                                    <option value="deluxe">Deluxe Room</option>
+                                    <option value="executive">Executive Suite</option>
+                                    <option value="presidential">Presidential Suite</option>
+                                    <option value="family">Family Room</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonialRating">Rating</label>
+                        <div>
+                            <div class="star-rating" id="testimonialRating">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                            <input type="hidden" id="ratingValue" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="testimonialText">Testimonial Text</label>
+                        <textarea class="form-control" id="testimonialText" rows="4" placeholder="Enter testimonial text"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guestAvatar">Guest Avatar</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="guestAvatar">
+                            <label class="custom-file-label" for="guestAvatar">Choose file</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="testimonialStatus">Status</label>
+                                <select class="form-control" id="testimonialStatus">
+                                    <option value="approved">Approved</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="rejected">Rejected</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="testimonialDate">Testimonial Date</label>
+                                <input type="date" class="form-control" id="testimonialDate">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="featuredTestimonial">
+                        <label class="form-check-label" for="featuredTestimonial">Feature this testimonial</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveTestimonial">Save Testimonial</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preview Testimonial Modal -->
+<div class="modal fade" id="previewTestimonialModal" tabindex="-1" role="dialog" aria-labelledby="previewTestimonialModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="previewTestimonialModalLabel">Testimonial Preview</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" id="previewTestimonialBody">
+        <!-- Content will be filled by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+
+<!-- Custom scripts -->
+<script>
+    $(document).ready(function() {
+        // Initialize tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+        
+        // Toggle filter section
+        $('.filter-card .card-header').click(function() {
+            $(this).find('.fa-chevron-down').toggleClass('fa-rotate-180');
+        });
+        
+        // Apply filters button
+        $('#applyFilters').click(function() {
+            const status = $('#statusFilter').val();
+            const rating = $('#ratingFilter').val();
+            const sortBy = $('#sortFilter').val();
+            
+            // In a real application, this would send an AJAX request to filter data
+            alert(`Filters applied:\nStatus: ${status || 'All'}\nRating: ${rating || 'All'}\nSort By: ${sortBy}`);
+            
+            // Close the filter section
+            $('#filterCollapse').collapse('hide');
+        });
+        
+        // Reset filters button
+        $('#resetFilters').click(function() {
+            $('#statusFilter').val('');
+            $('#ratingFilter').val('');
+            $('#sortFilter').val('newest');
+        });
+        
+        // Status filter buttons
+        $('.status-filter').click(function() {
+            $('.status-filter').removeClass('active');
+            $(this).addClass('active');
+            
+            const status = $(this).data('status');
+            
+            if (status === 'all') {
+                $('.testimonial-item').show();
+            } else if (status === 'featured') {
+                $('.testimonial-item').hide();
+                $('.testimonial-item[data-featured="true"]').show();
+            } else {
+                $('.testimonial-item').hide();
+                $(`.testimonial-item[data-status="${status}"]`).show();
+            }
+        });
+        
+        // View toggle
+        $('input[name="viewOptions"]').change(function() {
+            if ($(this).attr('id') === 'gridView') {
+                $('#testimonialsGrid').removeClass('d-none');
+                $('#testimonialsTable').addClass('d-none');
+            } else {
+                $('#testimonialsGrid').addClass('d-none');
+                $('#testimonialsTable').removeClass('d-none');
+            }
+        });
+        
+        // Testimonial action buttons
+        $('.testimonial-action-btn').click(function() {
+            const action = $(this).find('i').attr('class');
+            const guestName = $(this).closest('.card').find('.card-title').text() || 
+                               $(this).closest('tr').find('td:first div:last').text();
+            
+            if (action.includes('fa-eye')) {
+                alert(`View details for ${guestName}'s testimonial`);
+            } else if (action.includes('fa-edit')) {
+                alert(`Edit ${guestName}'s testimonial`);
+            } else if (action.includes('fa-check')) {
+                alert(`Approve ${guestName}'s testimonial`);
+            } else if (action.includes('fa-times')) {
+                alert(`Reject ${guestName}'s testimonial`);
+            } else if (action.includes('fa-star')) {
+                alert(`Feature ${guestName}'s testimonial`);
+            } else if (action.includes('fa-star-half-alt')) {
+                alert(`Unfeature ${guestName}'s testimonial`);
+            } else if (action.includes('fa-trash')) {
+                alert(`Delete ${guestName}'s testimonial`);
+            }
+        });
+        
+        // Use delegated event for star rating in modal
+        $(document).on('click', '#testimonialRating i', function() {
+            const rating = $(this).data('rating');
+            $('#ratingValue').val(rating);
+            $(this).parent().find('i').each(function() {
+                if ($(this).data('rating') <= rating) {
+                    $(this).removeClass('far').addClass('fas');
+                } else {
+                    $(this).removeClass('fas').addClass('far');
+                }
+            });
+        });
+        // Reset stars and rating value when modal opens
+        $('#addTestimonialModal').on('show.bs.modal', function() {
+            $('#testimonialRating i').removeClass('fas').addClass('far');
+            $('#ratingValue').val('0');
+        });
+        
+        // Save new testimonial
+        $('#saveTestimonial').click(function() {
+            var name = $('#guestName').val();
+            var room_type = $('#roomType').val();
+            var stay_date = $('#stayDate').val();
+            var rating = $('#ratingValue').val();
+            var text = $('#testimonialText').val();
+            var status = $('#testimonialStatus').val();
+            var testimonial_date = $('#testimonialDate').val();
+            var featured = $('#featuredTestimonial').is(':checked') ? 1 : 0;
+            var avatarInput = $('#guestAvatar')[0];
+            console.log('DEBUG: ratingValue =', rating, 'name =', name, 'text =', text);
+            if (!name || !rating || !text) {
+                alert('Please fill in all required fields and provide a rating.');
+                return;
+            }
+            var formData = new FormData();
+            formData.append('action', 'create');
+            formData.append('name', name);
+            formData.append('room_type', room_type);
+            formData.append('stay_date', stay_date);
+            formData.append('rating', rating);
+            formData.append('text', text);
+            formData.append('status', status);
+            formData.append('testimonial_date', testimonial_date);
+            formData.append('featured', featured);
+            if (avatarInput.files[0]) formData.append('avatar', avatarInput.files[0]);
+            $('#saveTestimonial').prop('disabled', true).text('Saving...');
+            $.ajax({
+                url: 'testimonials_crud.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    $('#saveTestimonial').prop('disabled', false).text('Save Testimonial');
+                    if (res.success) {
+                        $('#addTestimonialModal').modal('hide');
+                        $('#addTestimonialForm')[0].reset();
+                        $('#testimonialRating i').removeClass('fas').addClass('far');
+                        $('#ratingValue').val('0');
+                        fetchTestimonials();
+                    } else {
+                        alert(res.message || 'Failed to add testimonial.');
+                    }
+                },
+                error: function() {
+                    $('#saveTestimonial').prop('disabled', false).text('Save Testimonial');
+                    alert('Failed to add testimonial.');
+                }
+            });
+        });
+    $(document).on('click', '.delete-btn', function() {
+        if (!confirm('Delete this testimonial?')) return;
+        var id = $(this).closest('.testimonial-item').data('id');
+        $.post('testimonials_crud.php', {action: 'delete', id: id}, function(res) {
+            if (res.success) fetchTestimonials();
+            else alert(res.message || 'Delete failed.');
+        }, 'json');
+    });
+    // --- END DYNAMIC TESTIMONIALS LOGIC ---
+    // Initial fetch
+    fetchTestimonials();
+    });
+    // --- DYNAMIC TESTIMONIALS LOGIC ---
+    function fetchTestimonials() {
+        $.get('testimonials_crud.php', {action: 'read'}, function(data) {
+            renderTestimonialsGrid(data);
+            renderTestimonialsTable(data);
+            updateTestimonialStats(data);
+        }, 'json');
+    }
+    function renderTestimonialsGrid(data) {
+        let html = '';
+        data.forEach(function(t) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += `<i class="${i <= t.rating ? 'fas' : 'far'} fa-star"></i>`;
+            }
+            let featuredBadge = t.featured == 1 ? '<span class="featured-badge">Featured</span>' : '';
+            let statusBadge = `<span class="testimonial-status-badge status-${t.status}">${capitalize(t.status)}</span>`;
+            let ratingBadge = `<span class="rating-badge">${t.rating}.0 Rating</span>`;
+            let avatar = t.avatar ? ('uploads/' + t.avatar) : '';
+            html += `
+            <div class="col-md-4 col-sm-6 testimonial-item" data-id="${t.id}" data-status="${t.status}" data-rating="${t.rating}" data-featured="${t.featured == 1}">
+                <div class="card testimonial-card">
+                    <div class="card-body text-center">
+                        ${avatar ? `<img src="${avatar}" alt="Guest" class="testimonial-avatar">` : ''}
+                        <div class="star-rating">${stars}</div>
+                        <h5 class="card-title">${escapeHtml(t.name)} ${featuredBadge}</h5>
+                        <p class="text-muted">Stayed in ${roomTypeText(t.room_type)}, ${t.stay_date || ''}</p>
+                        <div class="testimonial-text">
+                            <p>${escapeHtml(t.text)}</p>
+                        </div>
+                        <div class="mb-2">
+                            ${ratingBadge}
+                            ${statusBadge}
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-info testimonial-action-btn preview-btn" title="Preview"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-sm btn-primary testimonial-action-btn edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger testimonial-action-btn delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        });
+        $('#testimonialsGrid').html(html);
+    }
+    function renderTestimonialsTable(data) {
+        let html = '';
+        data.forEach(function(t) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += `<i class="${i <= t.rating ? 'fas' : 'far'} fa-star"></i>`;
+            }
+            let featuredBadge = t.featured == 1 ? '<span class="featured-badge">Featured</span>' : '';
+            let statusBadge = `<span class="testimonial-status-badge status-${t.status}">${capitalize(t.status)}</span>`;
+            let avatar = t.avatar ? ('uploads/' + t.avatar) : '';
+            html += `
+            <tr data-id="${t.id}">
+                <td>
+                    <div class="d-flex align-items-center">
+                        ${avatar ? `<img src="${avatar}" alt="Guest" width="40" height="40" class="rounded-circle mr-2">` : ''}
+                        <div>${escapeHtml(t.name)}</div>
+                    </div>
+                </td>
+                <td><div class="star-rating" style="font-size: 14px;">${stars}</div></td>
+                <td>${roomTypeText(t.room_type)}, ${t.stay_date || ''}</td>
+                <td>${escapeHtml(t.text).slice(0, 60)}${t.text.length > 60 ? '...' : ''}</td>
+                <td>${statusBadge} ${featuredBadge}</td>
+                <td>${t.testimonial_date || ''}</td>
+                <td>
+                    <button class="btn btn-sm btn-info testimonial-action-btn preview-btn" title="Preview"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-sm btn-primary testimonial-action-btn edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-sm btn-danger testimonial-action-btn delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>`;
+        });
+        $('#testimonialsTable tbody').html(html);
+    }
+    function updateTestimonialStats(data) {
+        var total = data.length;
+        var approved = 0, pending = 0, featured = 0;
+        data.forEach(function(t) {
+            if (t.status === 'approved') approved++;
+            if (t.status === 'pending') pending++;
+            if (t.featured == 1) featured++;
+        });
+        $('#stat-total').text(total);
+        $('#stat-approved').text(approved);
+        $('#stat-pending').text(pending);
+        $('#stat-featured').text(featured);
+    }
+    function escapeHtml(text) {
+        return $('<div>').text(text).html();
+    }
+    function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+    function roomTypeText(val) {
+        switch(val) {
+            case 'deluxe': return 'Deluxe Room';
+            case 'executive': return 'Executive Suite';
+            case 'presidential': return 'Presidential Suite';
+            case 'family': return 'Family Room';
+            default: return val || '';
+        }
+    }
+    // Initial fetch
+    fetchTestimonials();
+</script>
+</body>
+</html>

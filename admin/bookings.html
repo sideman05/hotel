@@ -16,6 +16,22 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
+        <!-- Booking Details Modal -->
+        <div class="modal fade" id="bookingDetailsModal" tabindex="-1" role="dialog" aria-labelledby="bookingDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookingDetailsModalLabel">Booking Details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="bookingDetailsBody">
+                        <!-- Details will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
 
  <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -28,7 +44,7 @@
                 <a href="dashboard.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.html" class="nav-link">View Website</a>
+                <a href="../index.html" class="nav-link">View Website</a>
             </li>
         </ul>
 
@@ -348,148 +364,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#BK001</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Guest" class="guest-avatar mr-2">
-                                                        <div>
-                                                            <div>John Smith</div>
-                                                            <small class="text-muted">john@example.com</small>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Presidential Suite</td>
-                                                <td>Aug 22, 2023</td>
-                                                <td>Aug 27, 2023</td>
-                                                <td>5</td>
-                                                <td>$1,250.00</td>
-                                                <td><span class="booking-status-badge status-confirmed">Confirmed</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info booking-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-primary booking-action-btn" data-toggle="tooltip" title="Check In">
-                                                        <i class="fas fa-key"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-warning booking-action-btn" data-toggle="tooltip" title="Send Message">
-                                                        <i class="fas fa-envelope"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#BK002</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Guest" class="guest-avatar mr-2">
-                                                        <div>
-                                                            <div>Emily Johnson</div>
-                                                            <small class="text-muted">emily@example.com</small>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Deluxe Room</td>
-                                                <td>Aug 20, 2023</td>
-                                                <td>Aug 25, 2023</td>
-                                                <td>5</td>
-                                                <td>$750.00</td>
-                                                <td><span class="booking-status-badge status-checked-in">Checked In</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info booking-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-success booking-action-btn" data-toggle="tooltip" title="Check Out">
-                                                        <i class="fas fa-sign-out-alt"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-warning booking-action-btn" data-toggle="tooltip" title="Send Message">
-                                                        <i class="fas fa-envelope"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#BK003</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Guest" class="guest-avatar mr-2">
-                                                        <div>
-                                                            <div>Robert Williams</div>
-                                                            <small class="text-muted">robert@example.com</small>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Executive Suite</td>
-                                                <td>Sep 05, 2023</td>
-                                                <td>Sep 10, 2023</td>
-                                                <td>5</td>
-                                                <td>$980.00</td>
-                                                <td><span class="booking-status-badge status-pending">Pending</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info booking-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-success booking-action-btn" data-toggle="tooltip" title="Confirm">
-                                                        <i class="fas fa-check"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-danger booking-action-btn" data-toggle="tooltip" title="Reject">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#BK004</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Guest" class="guest-avatar mr-2">
-                                                        <div>
-                                                            <div>Sarah Brown</div>
-                                                            <small class="text-muted">sarah@example.com</small>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Family Room</td>
-                                                <td>Aug 15, 2023</td>
-                                                <td>Aug 20, 2023</td>
-                                                <td>5</td>
-                                                <td>$850.00</td>
-                                                <td><span class="booking-status-badge status-checked-out">Checked Out</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info booking-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-secondary booking-action-btn" data-toggle="tooltip" title="Invoice">
-                                                        <i class="fas fa-receipt"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-warning booking-action-btn" data-toggle="tooltip" title="Send Review Request">
-                                                        <i class="fas fa-star"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#BK005</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <img src="https://randomuser.me/api/portraits/men/74.jpg" alt="Guest" class="guest-avatar mr-2">
-                                                        <div>
-                                                            <div>Michael Davis</div>
-                                                            <small class="text-muted">michael@example.com</small>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>Executive Suite</td>
-                                                <td>Aug 25, 2023</td>
-                                                <td>Aug 30, 2023</td>
-                                                <td>5</td>
-                                                <td>$980.00</td>
-                                                <td><span class="booking-status-badge status-cancelled">Cancelled</span></td>
-                                                <td>
-                                                    <button class="btn btn-sm btn-info booking-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-secondary booking-action-btn" data-toggle="tooltip" title="Restore">
-                                                        <i class="fas fa-undo"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                            <!-- Dynamic rows rendered by JS -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -551,64 +426,147 @@
     $(document).ready(function() {
         // Initialize tooltips
         $('[data-toggle="tooltip"]').tooltip();
-        
-        // Toggle filter section
-        $('.filter-card .card-header').click(function() {
-            $(this).find('.fa-chevron-down').toggleClass('fa-rotate-180');
+
+        // Fetch and render bookings
+        function fetchBookings() {
+            $.get('bookings_crud.php', {action: 'read'}, function(data) {
+                console.log('Fetched bookings:', data);
+                renderBookingsTable(data);
+            }, 'json');
+        }
+        function renderBookingsTable(data) {
+            let html = '';
+            data.forEach(function(b) {
+                // Calculate nights
+                let nights = '-';
+                if (b.check_in && b.check_out) {
+                    let inDate = new Date(b.check_in);
+                    let outDate = new Date(b.check_out);
+                    nights = Math.max(1, Math.round((outDate-inDate)/(1000*60*60*24)));
+                }
+                // Get price per night from room type (simple mapping, can be improved)
+                let priceMap = {
+                    'Standard Room': 199,
+                    'Deluxe Room': 299,
+                    'Executive Suite': 499,
+                    'Presidential Suite': 700,
+                    'Deluxe': 299,
+                    'Presidential': 700,
+                    'Executive': 499,
+                    'Suite': 500
+                };
+                let price = priceMap[b.room_type] || 300;
+                let total = (nights !== '-' ? ('$' + (nights * price).toLocaleString()) : '-');
+                let status = b.status ? b.status.charAt(0).toUpperCase() + b.status.slice(1) : 'Pending';
+                html += `<tr data-id="${b.id}" data-email="${b.email || ''}" data-name="${b.guest_name || ''}">
+                    <td>#BK${String(b.id).padStart(3,'0')}</td>
+                    <td>${b.guest_name || ''}</td>
+                    <td>${b.room_type || ''}</td>
+                    <td>${b.check_in || ''}</td>
+                    <td>${b.check_out || ''}</td>
+                    <td>${nights}</td>
+                    <td>${total}</td>
+                    <td class="booking-status">${status}</td>
+                    <td>
+                        <button class="btn btn-sm btn-info booking-action-btn view-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                        <button class="btn btn-sm btn-success booking-action-btn confirm-btn" title="Confirm"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-sm btn-danger booking-action-btn reject-btn" title="Reject"><i class="fas fa-times"></i></button>
+                        <button class="btn btn-sm btn-warning booking-action-btn message-btn" title="Send Message"><i class="fas fa-envelope"></i></button>
+                    </td>
+                </tr>`;
+            });
+            $(".table tbody").html(html);
+        }
+        fetchBookings();
+
+        // --- ACTION BUTTONS LOGIC ---
+        $(document).on('click', '.confirm-btn', function() {
+            console.log('Confirm button clicked');
+            let $tr = $(this).closest('tr');
+            let id = $tr.data('id');
+            updateBookingStatus(id, 'Confirmed', $tr);
         });
-        
-        // Apply filters button
-        $('#applyFilters').click(function() {
-            const status = $('#statusFilter').val();
-            const roomType = $('#roomTypeFilter').val();
-            const sortBy = $('#sortFilter').val();
-            
-            // In a real application, this would send an AJAX request to filter data
-            alert(`Filters applied:\nStatus: ${status || 'All'}\nRoom Type: ${roomType || 'All'}\nSort By: ${sortBy}`);
-            
-            // Close the filter section
-            $('#filterCollapse').collapse('hide');
+        $(document).on('click', '.reject-btn', function() {
+            console.log('Reject button clicked');
+            let $tr = $(this).closest('tr');
+            let id = $tr.data('id');
+            updateBookingStatus(id, 'Rejected', $tr);
         });
-        
-        // Reset filters button
-        $('#resetFilters').click(function() {
-            $('#statusFilter').val('');
-            $('#roomTypeFilter').val('');
-            $('#sortFilter').val('newest');
-            $('#dateRangeFilter').val('');
+        // View Details logic
+        $(document).on('click', '.view-btn', function() {
+            let $tr = $(this).closest('tr');
+            let id = $tr.data('id');
+            // Fetch booking details from backend (or use row data if all info is present)
+            $.get('bookings_crud.php', {action: 'read'}, function(data) {
+                let booking = data.find(b => b.id == id);
+                if (!booking) {
+                    $('#bookingDetailsBody').html('<div class="alert alert-danger">Booking not found.</div>');
+                } else {
+                    let html = `<ul class='list-group'>
+                        <li class='list-group-item'><strong>Booking ID:</strong> #BK${String(booking.id).padStart(3,'0')}</li>
+                        <li class='list-group-item'><strong>Guest Name:</strong> ${booking.guest_name || ''}</li>
+                        <li class='list-group-item'><strong>Email:</strong> ${booking.email || ''}</li>
+                        <li class='list-group-item'><strong>Phone:</strong> ${booking.phone || ''}</li>
+                        <li class='list-group-item'><strong>Room Type:</strong> ${booking.room_type || ''}</li>
+                        <li class='list-group-item'><strong>Check-in:</strong> ${booking.check_in || ''}</li>
+                        <li class='list-group-item'><strong>Check-out:</strong> ${booking.check_out || ''}</li>
+                        <li class='list-group-item'><strong>Guests:</strong> ${booking.guests || ''}</li>
+                        <li class='list-group-item'><strong>Status:</strong> ${booking.status || ''}</li>
+                        <li class='list-group-item'><strong>Created At:</strong> ${booking.created_at || ''}</li>
+                    </ul>`;
+                    $('#bookingDetailsBody').html(html);
+                }
+                $('#bookingDetailsModal').modal('show');
+            }, 'json');
         });
-        
-        // Booking action buttons
-        $('.booking-action-btn').click(function() {
-            const action = $(this).find('i').attr('class');
-            const bookingId = $(this).closest('tr').find('td:first').text();
-            
-            if (action.includes('fa-eye')) {
-                alert(`View details for booking ${bookingId}`);
-            } else if (action.includes('fa-key')) {
-                alert(`Check in guest for booking ${bookingId}`);
-            } else if (action.includes('fa-sign-out-alt')) {
-                alert(`Check out guest for booking ${bookingId}`);
-            } else if (action.includes('fa-envelope')) {
-                alert(`Send message to guest for booking ${bookingId}`);
-            } else if (action.includes('fa-check')) {
-                alert(`Confirm booking ${bookingId}`);
-            } else if (action.includes('fa-times')) {
-                alert(`Reject booking ${bookingId}`);
-            } else if (action.includes('fa-receipt')) {
-                alert(`Generate invoice for booking ${bookingId}`);
-            } else if (action.includes('fa-star')) {
-                alert(`Send review request for booking ${bookingId}`);
-            } else if (action.includes('fa-undo')) {
-                alert(`Restore booking ${bookingId}`);
+        function updateBookingStatus(id, status, $tr) {
+            console.log('Updating booking status', id, status);
+            $.post('bookings_crud.php', {action:'update_status', id:id, status:status}, function(res) {
+                console.log('Update status response:', res);
+                if (res.success) {
+                    $tr.find('.booking-status').text(status);
+                    alert('Booking status updated to ' + status);
+                } else {
+                    alert(res.message || 'Failed to update status');
+                }
+            }, 'json');
+        }
+        // Send Message modal
+        let messageModal = null;
+        $(document).on('click', '.message-btn', function() {
+            console.log('Message button clicked');
+            let $tr = $(this).closest('tr');
+            let email = $tr.data('email');
+            let name = $tr.data('name');
+            if (!messageModal) {
+                messageModal = $('<div id="sendMessageModal" style="position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;">\
+                  <div style=\"background:#fff;padding:30px;max-width:400px;width:90vw;position:relative;\">\
+                    <button id=\"closeSendMessageModal\" style=\"position:absolute;top:10px;right:10px;font-size:20px;\">&times;</button>\
+                    <h4>Send Message</h4>\
+                    <form id=\"sendMessageForm\">\
+                      <div class=\"form-group\"><label>To</label><input type=\"email\" class=\"form-control\" name=\"to\" readonly></div>\
+                      <div class=\"form-group\"><label>Subject</label><input type=\"text\" class=\"form-control\" name=\"subject\" required></div>\
+                      <div class=\"form-group\"><label>Message</label><textarea class=\"form-control\" name=\"message\" rows=4 required></textarea></div>\
+                      <button type=\"submit\" class=\"btn btn-primary btn-block\">Send</button>\
+                    </form>\
+                  </div>\
+                </div>');
+                $('body').append(messageModal);
             }
+            messageModal.find('input[name="to"]').val(email);
+            messageModal.find('input[name="subject"]').val('Regarding your booking');
+            messageModal.find('textarea[name="message"]').val('Dear ' + (name || 'Guest') + ',\n\n');
+            messageModal.show();
         });
-        
-        // Initialize date range picker (simplified version)
-        $('#dateRangeFilter').daterangepicker = function() {
-            // This would initialize a date range picker in a real application
-            alert('Date range picker would be initialized here with a proper library');
-        };
+        $(document).on('click', '#closeSendMessageModal', function() {
+            $('#sendMessageModal').hide();
+        });
+        $(document).on('submit', '#sendMessageForm', function(e) {
+            e.preventDefault();
+            // In real app, send email via backend
+            alert('Message sent! (In real app, send via backend)');
+            $('#sendMessageModal').hide();
+        });
     });
 </script>
 </body>

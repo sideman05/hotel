@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="/admin/styles/testmonials.css">
+    <link rel="stylesheet" href="styles/testmonials.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -29,7 +29,7 @@
                 <a href="dashboard.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.html" class="nav-link">View Website</a>
+                <a href="../index.html" class="nav-link">View Website</a>
             </li>
         </ul>
 
@@ -193,7 +193,7 @@
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>127</h3>
+                                <h3 id="stat-total">0</h3>
                                 <p>Total Testimonials</p>
                             </div>
                             <div class="icon">
@@ -205,7 +205,7 @@
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>98</h3>
+                                <h3 id="stat-approved">0</h3>
                                 <p>Approved Testimonials</p>
                             </div>
                             <div class="icon">
@@ -217,7 +217,7 @@
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>18</h3>
+                                <h3 id="stat-pending">0</h3>
                                 <p>Pending Review</p>
                             </div>
                             <div class="icon">
@@ -229,7 +229,7 @@
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-primary">
                             <div class="inner">
-                                <h3>24</h3>
+                                <h3 id="stat-featured">0</h3>
                                 <p>Featured Testimonials</p>
                             </div>
                             <div class="icon">
@@ -351,228 +351,7 @@
 
                                 <!-- Testimonials Grid View -->
                                 <div class="row" id="testimonialsGrid">
-                                    <div class="col-md-4 col-sm-6 testimonial-item" data-status="approved" data-rating="5" data-featured="true">
-                                        <div class="card testimonial-card">
-                                            <div class="card-body text-center">
-                                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Guest" class="testimonial-avatar">
-                                                <div class="star-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <h5 class="card-title">Sarah Johnson <span class="featured-badge">Featured</span></h5>
-                                                <p class="text-muted">Stayed in Presidential Suite, August 2023</p>
-                                                <div class="testimonial-text">
-                                                    <p>The most luxurious hotel experience I've ever had! The staff went above and beyond to make our anniversary special. The room was impeccable and the views were breathtaking.</p>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <span class="rating-badge">5.0 Rating</span>
-                                                    <span class="testimonial-status-badge status-approved">Approved</span>
-                                                </div>
-                                                <div class="btn-group">
-                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-warning testimonial-action-btn" data-toggle="tooltip" title="Unfeature">
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-danger testimonial-action-btn" data-toggle="tooltip" title="Reject">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 testimonial-item" data-status="approved" data-rating="5" data-featured="false">
-                                        <div class="card testimonial-card">
-                                            <div class="card-body text-center">
-                                                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Guest" class="testimonial-avatar">
-                                                <div class="star-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <h5 class="card-title">Michael Thompson</h5>
-                                                <p class="text-muted">Stayed in Executive Suite, July 2023</p>
-                                                <div class="testimonial-text">
-                                                    <p>Business travel made enjoyable! The executive floor amenities were perfect for getting work done, and the bed was so comfortable I had the best sleep in years.</p>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <span class="rating-badge">5.0 Rating</span>
-                                                    <span class="testimonial-status-badge status-approved">Approved</span>
-                                                </div>
-                                                <div class="btn-group">
-                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-success testimonial-action-btn" data-toggle="tooltip" title="Feature">
-                                                        <i class="fas fa-star"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-danger testimonial-action-btn" data-toggle="tooltip" title="Reject">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 testimonial-item" data-status="pending" data-rating="4" data-featured="false">
-                                        <div class="card testimonial-card">
-                                            <div class="card-body text-center">
-                                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Guest" class="testimonial-avatar">
-                                                <div class="star-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                </div>
-                                                <h5 class="card-title">Jennifer Lee</h5>
-                                                <p class="text-muted">Stayed in Deluxe Room, August 2023</p>
-                                                <div class="testimonial-text">
-                                                    <p>Beautiful hotel with excellent service. The spa treatments were incredible, and the pool area was so relaxing. Would definitely return for another weekend getaway.</p>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <span class="rating-badge">4.0 Rating</span>
-                                                    <span class="testimonial-status-badge status-pending">Pending</span>
-                                                </div>
-                                                <div class="btn-group">
-                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-success testimonial-action-btn" data-toggle="tooltip" title="Approve">
-                                                        <i class="fas fa-check"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-danger testimonial-action-btn" data-toggle="tooltip" title="Reject">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 testimonial-item" data-status="approved" data-rating="5" data-featured="true">
-                                        <div class="card testimonial-card">
-                                            <div class="card-body text-center">
-                                                <img src="https://randomuser.me/api/portraits/men/72.jpg" alt="Guest" class="testimonial-avatar">
-                                                <div class="star-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                </div>
-                                                <h5 class="card-title">Robert Martinez <span class="featured-badge">Featured</span></h5>
-                                                <p class="text-muted">Stayed in Family Room, June 2023</p>
-                                                <div class="testimonial-text">
-                                                    <p>Our family vacation was perfect thanks to Luxury Haven. The kids loved the pool, and the family room had plenty of space. The staff even arranged a surprise birthday cake for my daughter!</p>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <span class="rating-badge">5.0 Rating</span>
-                                                    <span class="testimonial-status-badge status-approved">Approved</span>
-                                                </div>
-                                                <div class="btn-group">
-                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-warning testimonial-action-btn" data-toggle="tooltip" title="Unfeature">
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-danger testimonial-action-btn" data-toggle="tooltip" title="Reject">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 testimonial-item" data-status="rejected" data-rating="3" data-featured="false">
-                                        <div class="card testimonial-card">
-                                            <div class="card-body text-center">
-                                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Guest" class="testimonial-avatar">
-                                                <div class="star-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                </div>
-                                                <h5 class="card-title">Amanda Wilson</h5>
-                                                <p class="text-muted">Stayed in Deluxe Room, July 2023</p>
-                                                <div class="testimonial-text">
-                                                    <p>The room was nice but the air conditioning wasn't working properly. Staff was helpful but it took a while to resolve. Location is great though.</p>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <span class="rating-badge">3.0 Rating</span>
-                                                    <span class="testimonial-status-badge status-rejected">Rejected</span>
-                                                </div>
-                                                <div class="btn-group">
-                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-success testimonial-action-btn" data-toggle="tooltip" title="Approve">
-                                                        <i class="fas fa-check"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-secondary testimonial-action-btn" data-toggle="tooltip" title="Delete">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 testimonial-item" data-status="approved" data-rating="4" data-featured="false">
-                                        <div class="card testimonial-card">
-                                            <div class="card-body text-center">
-                                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Guest" class="testimonial-avatar">
-                                                <div class="star-rating">
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                </div>
-                                                <h5 class="card-title">David Kim</h5>
-                                                <p class="text-muted">Stayed in Executive Suite, August 2023</p>
-                                                <div class="testimonial-text">
-                                                    <p>Great business hotel with excellent amenities. The conference facilities were top-notch and the food at the restaurant was exceptional. Will definitely stay here again on my next business trip.</p>
-                                                </div>
-                                                <div class="mb-2">
-                                                    <span class="rating-badge">4.0 Rating</span>
-                                                    <span class="testimonial-status-badge status-approved">Approved</span>
-                                                </div>
-                                                <div class="btn-group">
-                                                    <button class="btn btn-sm btn-info testimonial-action-btn" data-toggle="tooltip" title="View Details">
-                                                        <i class="fas fa-eye"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-primary testimonial-action-btn" data-toggle="tooltip" title="Edit">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-success testimonial-action-btn" data-toggle="tooltip" title="Feature">
-                                                        <i class="fas fa-star"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-danger testimonial-action-btn" data-toggle="tooltip" title="Reject">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- Dynamic testimonials will be rendered here by JS -->
                                 </div>
 
                                 <!-- Testimonials Table View (Hidden by default) -->
@@ -849,6 +628,23 @@
     </div>
 </div>
 
+<!-- Preview Testimonial Modal -->
+<div class="modal fade" id="previewTestimonialModal" tabindex="-1" role="dialog" aria-labelledby="previewTestimonialModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="previewTestimonialModalLabel">Testimonial Preview</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center" id="previewTestimonialBody">
+        <!-- Content will be filled by JS -->
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- jQuery -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -916,35 +712,138 @@
             }
         });
         
-        // Testimonial action buttons
-        $('.testimonial-action-btn').click(function() {
-            const action = $(this).find('i').attr('class');
-            const guestName = $(this).closest('.card').find('.card-title').text() || 
-                               $(this).closest('tr').find('td:first div:last').text();
-            
-            if (action.includes('fa-eye')) {
-                alert(`View details for ${guestName}'s testimonial`);
-            } else if (action.includes('fa-edit')) {
-                alert(`Edit ${guestName}'s testimonial`);
-            } else if (action.includes('fa-check')) {
-                alert(`Approve ${guestName}'s testimonial`);
-            } else if (action.includes('fa-times')) {
-                alert(`Reject ${guestName}'s testimonial`);
-            } else if (action.includes('fa-star')) {
-                alert(`Feature ${guestName}'s testimonial`);
-            } else if (action.includes('fa-star-half-alt')) {
-                alert(`Unfeature ${guestName}'s testimonial`);
-            } else if (action.includes('fa-trash')) {
-                alert(`Delete ${guestName}'s testimonial`);
+        // --- PREVIEW BUTTON FUNCTIONALITY ---
+        $(document).on('click', '.preview-btn', function() {
+            let $item = $(this).closest('.testimonial-item');
+            if ($item.length === 0) $item = $(this).closest('tr');
+            let id = $item.data('id');
+            $.get('testimonials_crud.php', {action: 'read'}, function(data) {
+                let t = data.find(x => x.id == id);
+                if (!t) return;
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    stars += `<i class="${i <= t.rating ? 'fas' : 'far'} fa-star"></i>`;
+                }
+                let avatar = t.avatar ? ('uploads/' + t.avatar) : '';
+                let featuredBadge = t.featured == 1 ? '<span class="featured-badge">Featured</span>' : '';
+                let statusBadge = `<span class="testimonial-status-badge status-${t.status}">${capitalize(t.status)}</span>`;
+                let html = `
+                    ${avatar ? `<img src="${avatar}" alt="Guest" class="testimonial-avatar mb-2">` : ''}
+                    <div class="star-rating mb-2">${stars}</div>
+                    <h5>${escapeHtml(t.name)} ${featuredBadge}</h5>
+                    <p class="text-muted">Stayed in ${roomTypeText(t.room_type)}, ${t.stay_date || ''}</p>
+                    <div class="testimonial-text mb-2"><p>${escapeHtml(t.text)}</p></div>
+                    <div>${statusBadge} <span class="ml-2">${t.testimonial_date || ''}</span></div>
+                `;
+                $('#previewTestimonialBody').html(html);
+                $('#previewTestimonialModal').modal('show');
+            }, 'json');
+        });
+
+        // --- EDIT BUTTON FUNCTIONALITY ---
+        let editingTestimonialId = null;
+        $(document).on('click', '.edit-btn', function() {
+            let $item = $(this).closest('.testimonial-item');
+            if ($item.length === 0) $item = $(this).closest('tr');
+            let id = $item.data('id');
+            $.get('testimonials_crud.php', {action: 'read'}, function(data) {
+                let t = data.find(x => x.id == id);
+                if (!t) return;
+                editingTestimonialId = id;
+                $('#addTestimonialModalLabel').text('Edit Testimonial');
+                $('#guestName').val(t.name);
+                $('#roomType').val(t.room_type);
+                $('#stayDate').val(t.stay_date);
+                $('#testimonialText').val(t.text);
+                $('#testimonialStatus').val(t.status);
+                $('#testimonialDate').val(t.testimonial_date);
+                $('#featuredTestimonial').prop('checked', t.featured == 1);
+                $('#ratingValue').val(t.rating);
+                $('#testimonialRating i').each(function() {
+                    if ($(this).data('rating') <= t.rating) {
+                        $(this).removeClass('far').addClass('fas');
+                    } else {
+                        $(this).removeClass('fas').addClass('far');
+                    }
+                });
+                $('#guestAvatar').val('');
+                $('#addTestimonialForm').data('current-avatar', t.avatar || '');
+                $('#addTestimonialModal').modal('show');
+                $('#saveTestimonial').data('edit', true);
+                $('#saveTestimonial').text('Update Testimonial');
+            }, 'json');
+        });
+
+        // On modal close, reset editing state
+        $('#addTestimonialModal').on('hidden.bs.modal', function() {
+            editingTestimonialId = null;
+            $('#addTestimonialModalLabel').text('Add New Testimonial');
+            $('#saveTestimonial').removeData('edit').text('Save Testimonial');
+            $('#addTestimonialForm')[0].reset();
+            $('#testimonialRating i').removeClass('fas').addClass('far');
+            $('#ratingValue').val('0');
+        });
+
+        // Save or Update Testimonial
+        $('#saveTestimonial').off('click.edit').on('click.edit', function() {
+            var isEdit = $(this).data('edit');
+            var name = $('#guestName').val();
+            var room_type = $('#roomType').val();
+            var stay_date = $('#stayDate').val();
+            var rating = $('#ratingValue').val();
+            var text = $('#testimonialText').val();
+            var status = $('#testimonialStatus').val();
+            var testimonial_date = $('#testimonialDate').val();
+            var featured = $('#featuredTestimonial').is(':checked') ? 1 : 0;
+            var avatarInput = $('#guestAvatar')[0];
+            if (!name || !rating || !text) {
+                alert('Please fill in all required fields and provide a rating.');
+                return;
             }
+            var formData = new FormData();
+            if (isEdit && editingTestimonialId) {
+                formData.append('action', 'update');
+                formData.append('id', editingTestimonialId);
+                formData.append('current_avatar', $('#addTestimonialForm').data('current-avatar') || '');
+            } else {
+                formData.append('action', 'create');
+            }
+            formData.append('name', name);
+            formData.append('room_type', room_type);
+            formData.append('stay_date', stay_date);
+            formData.append('rating', rating);
+            formData.append('text', text);
+            formData.append('status', status);
+            formData.append('testimonial_date', testimonial_date);
+            formData.append('featured', featured);
+            if (avatarInput.files[0]) formData.append('avatar', avatarInput.files[0]);
+            $('#saveTestimonial').prop('disabled', true).text(isEdit ? 'Updating...' : 'Saving...');
+            $.ajax({
+                url: 'testimonials_crud.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    $('#saveTestimonial').prop('disabled', false).text(isEdit ? 'Update Testimonial' : 'Save Testimonial');
+                    if (res.success) {
+                        $('#addTestimonialModal').modal('hide');
+                        fetchTestimonials();
+                    } else {
+                        alert(res.message || (isEdit ? 'Failed to update testimonial.' : 'Failed to add testimonial.'));
+                    }
+                },
+                error: function() {
+                    $('#saveTestimonial').prop('disabled', false).text(isEdit ? 'Update Testimonial' : 'Save Testimonial');
+                    alert(isEdit ? 'Failed to update testimonial.' : 'Failed to add testimonial.');
+                }
+            });
         });
         
-        // Star rating functionality
-        $('.star-rating i').click(function() {
+        // Use delegated event for star rating in modal
+        $(document).on('click', '#testimonialRating i', function() {
             const rating = $(this).data('rating');
             $('#ratingValue').val(rating);
-            
-            // Highlight stars up to the clicked one
             $(this).parent().find('i').each(function() {
                 if ($(this).data('rating') <= rating) {
                     $(this).removeClass('far').addClass('fas');
@@ -953,36 +852,181 @@
                 }
             });
         });
+        // Reset stars and rating value when modal opens
+        $('#addTestimonialModal').on('show.bs.modal', function() {
+            $('#testimonialRating i').removeClass('fas').addClass('far');
+            $('#ratingValue').val('0');
+        });
         
         // Save new testimonial
         $('#saveTestimonial').click(function() {
-            const guestName = $('#guestName').val();
-            const rating = $('#ratingValue').val();
-            const testimonialText = $('#testimonialText').val();
-            
-            if (guestName && rating > 0 && testimonialText) {
-                alert(`Testimonial from ${guestName} has been added successfully!`);
-                $('#addTestimonialModal').modal('hide');
-                $('#addTestimonialForm')[0].reset();
-                
-                // Reset star rating
-                $('#testimonialRating i').removeClass('fas').addClass('far');
-                $('#ratingValue').val('0');
-            } else {
+            var name = $('#guestName').val();
+            var room_type = $('#roomType').val();
+            var stay_date = $('#stayDate').val();
+            var rating = $('#ratingValue').val();
+            var text = $('#testimonialText').val();
+            var status = $('#testimonialStatus').val();
+            var testimonial_date = $('#testimonialDate').val();
+            var featured = $('#featuredTestimonial').is(':checked') ? 1 : 0;
+            var avatarInput = $('#guestAvatar')[0];
+            console.log('DEBUG: ratingValue =', rating, 'name =', name, 'text =', text);
+            if (!name || !rating || !text) {
                 alert('Please fill in all required fields and provide a rating.');
+                return;
             }
+            var formData = new FormData();
+            formData.append('action', 'create');
+            formData.append('name', name);
+            formData.append('room_type', room_type);
+            formData.append('stay_date', stay_date);
+            formData.append('rating', rating);
+            formData.append('text', text);
+            formData.append('status', status);
+            formData.append('testimonial_date', testimonial_date);
+            formData.append('featured', featured);
+            if (avatarInput.files[0]) formData.append('avatar', avatarInput.files[0]);
+            $('#saveTestimonial').prop('disabled', true).text('Saving...');
+            $.ajax({
+                url: 'testimonials_crud.php',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(res) {
+                    $('#saveTestimonial').prop('disabled', false).text('Save Testimonial');
+                    if (res.success) {
+                        $('#addTestimonialModal').modal('hide');
+                        $('#addTestimonialForm')[0].reset();
+                        $('#testimonialRating i').removeClass('fas').addClass('far');
+                        $('#ratingValue').val('0');
+                        fetchTestimonials();
+                    } else {
+                        alert(res.message || 'Failed to add testimonial.');
+                    }
+                },
+                error: function() {
+                    $('#saveTestimonial').prop('disabled', false).text('Save Testimonial');
+                    alert('Failed to add testimonial.');
+                }
+            });
         });
-        
-        // Set today's date as default for testimonial date
-        const today = new Date().toISOString().split('T')[0];
-        $('#testimonialDate').val(today);
-        
-        // Update custom file input label
-        $('.custom-file-input').on('change', function() {
-            let fileName = $(this).val().split('\\').pop();
-            $(this).next('.custom-file-label').addClass("selected").html(fileName);
-        });
+    $(document).on('click', '.delete-btn', function() {
+        if (!confirm('Delete this testimonial?')) return;
+        var id = $(this).closest('.testimonial-item').data('id');
+        $.post('testimonials_crud.php', {action: 'delete', id: id}, function(res) {
+            if (res.success) fetchTestimonials();
+            else alert(res.message || 'Delete failed.');
+        }, 'json');
     });
+    // --- END DYNAMIC TESTIMONIALS LOGIC ---
+    // Initial fetch
+    fetchTestimonials();
+    });
+    // --- DYNAMIC TESTIMONIALS LOGIC ---
+    function fetchTestimonials() {
+        $.get('testimonials_crud.php', {action: 'read'}, function(data) {
+            renderTestimonialsGrid(data);
+            renderTestimonialsTable(data);
+            updateTestimonialStats(data);
+        }, 'json');
+    }
+    function renderTestimonialsGrid(data) {
+        let html = '';
+        data.forEach(function(t) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += `<i class="${i <= t.rating ? 'fas' : 'far'} fa-star"></i>`;
+            }
+            let featuredBadge = t.featured == 1 ? '<span class="featured-badge">Featured</span>' : '';
+            let statusBadge = `<span class="testimonial-status-badge status-${t.status}">${capitalize(t.status)}</span>`;
+            let ratingBadge = `<span class="rating-badge">${t.rating}.0 Rating</span>`;
+            let avatar = t.avatar ? ('uploads/' + t.avatar) : '';
+            html += `
+            <div class="col-md-4 col-sm-6 testimonial-item" data-id="${t.id}" data-status="${t.status}" data-rating="${t.rating}" data-featured="${t.featured == 1}">
+                <div class="card testimonial-card">
+                    <div class="card-body text-center">
+                        ${avatar ? `<img src="${avatar}" alt="Guest" class="testimonial-avatar">` : ''}
+                        <div class="star-rating">${stars}</div>
+                        <h5 class="card-title">${escapeHtml(t.name)} ${featuredBadge}</h5>
+                        <p class="text-muted">Stayed in ${roomTypeText(t.room_type)}, ${t.stay_date || ''}</p>
+                        <div class="testimonial-text">
+                            <p>${escapeHtml(t.text)}</p>
+                        </div>
+                        <div class="mb-2">
+                            ${ratingBadge}
+                            ${statusBadge}
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-sm btn-info testimonial-action-btn preview-btn" title="Preview"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-sm btn-primary testimonial-action-btn edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger testimonial-action-btn delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        });
+        $('#testimonialsGrid').html(html);
+    }
+    function renderTestimonialsTable(data) {
+        let html = '';
+        data.forEach(function(t) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += `<i class="${i <= t.rating ? 'fas' : 'far'} fa-star"></i>`;
+            }
+            let featuredBadge = t.featured == 1 ? '<span class="featured-badge">Featured</span>' : '';
+            let statusBadge = `<span class="testimonial-status-badge status-${t.status}">${capitalize(t.status)}</span>`;
+            let avatar = t.avatar ? ('uploads/' + t.avatar) : '';
+            html += `
+            <tr data-id="${t.id}">
+                <td>
+                    <div class="d-flex align-items-center">
+                        ${avatar ? `<img src="${avatar}" alt="Guest" width="40" height="40" class="rounded-circle mr-2">` : ''}
+                        <div>${escapeHtml(t.name)}</div>
+                    </div>
+                </td>
+                <td><div class="star-rating" style="font-size: 14px;">${stars}</div></td>
+                <td>${roomTypeText(t.room_type)}, ${t.stay_date || ''}</td>
+                <td>${escapeHtml(t.text).slice(0, 60)}${t.text.length > 60 ? '...' : ''}</td>
+                <td>${statusBadge} ${featuredBadge}</td>
+                <td>${t.testimonial_date || ''}</td>
+                <td>
+                    <button class="btn btn-sm btn-info testimonial-action-btn preview-btn" title="Preview"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-sm btn-primary testimonial-action-btn edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-sm btn-danger testimonial-action-btn delete-btn" title="Delete"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>`;
+        });
+        $('#testimonialsTable tbody').html(html);
+    }
+    function updateTestimonialStats(data) {
+        var total = data.length;
+        var approved = 0, pending = 0, featured = 0;
+        data.forEach(function(t) {
+            if (t.status === 'approved') approved++;
+            if (t.status === 'pending') pending++;
+            if (t.featured == 1) featured++;
+        });
+        $('#stat-total').text(total);
+        $('#stat-approved').text(approved);
+        $('#stat-pending').text(pending);
+        $('#stat-featured').text(featured);
+    }
+    function escapeHtml(text) {
+        return $('<div>').text(text).html();
+    }
+    function capitalize(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+    function roomTypeText(val) {
+        switch(val) {
+            case 'deluxe': return 'Deluxe Room';
+            case 'executive': return 'Executive Suite';
+            case 'presidential': return 'Presidential Suite';
+            case 'family': return 'Family Room';
+            default: return val || '';
+        }
+    }
+    // Initial fetch
+    fetchTestimonials();
 </script>
 </body>
 </html>
