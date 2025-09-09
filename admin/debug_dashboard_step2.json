@@ -1,0 +1,4 @@
+{
+  "status": "debug",
+  "message": "Add console.log to all AJAX callbacks in dashboard.html to debug what is being returned and why DOM is not updating."
+}

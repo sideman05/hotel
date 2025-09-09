@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- jQuery UI for sortable -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     
-    <link rel="stylesheet" href="/admin/styles/dashboard.css">
+    
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -189,6 +192,8 @@
         <!-- /.content-header -->
 
         <!-- Main content -->
+    <!-- DEBUG: Raw dashboard_stats.php response -->
+    <!-- <div id="dashboard-debug" style="background:#fffbe6;color:#b36b00;padding:10px;margin-bottom:10px;display:none;font-size:13px;"></div> -->
         <section class="content">
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
@@ -197,7 +202,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3 id="stat-total-bookings">...</h3>
                                 <p>Total Bookings</p>
                             </div>
                             <div class="icon">
@@ -211,7 +216,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                <h3 id="stat-occupancy-rate">...</h3>
                                 <p>Occupancy Rate</p>
                             </div>
                             <div class="icon">
@@ -225,7 +230,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>44</h3>
+                                <h3 id="stat-new-guests">...</h3>
                                 <p>New Guests</p>
                             </div>
                             <div class="icon">
@@ -239,7 +244,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>$12,540</h3>
+                                <h3 id="stat-revenue">...</h3>
                                 <p>Revenue</p>
                             </div>
                             <div class="icon">
@@ -300,46 +305,8 @@
                             <!-- /.card-header -->
                             <div class="card-body p-0">
                                 <ul class="products-list product-list-in-card pl-2 pr-2">
-                                    <li class="item">
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title">Michael Johnson
-                                                <span class="badge badge-warning float-right">$320</span></a>
-                                            <span class="product-description">
-                                                Deluxe Room - Check-in: 12 Jun 2023 - 3 Nights
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <!-- /.item -->
-                                    <li class="item">
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title">Sarah Williams
-                                                <span class="badge badge-info float-right">$580</span></a>
-                                            <span class="product-description">
-                                                Executive Suite - Check-in: 14 Jun 2023 - 4 Nights
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <!-- /.item -->
-                                    <li class="item">
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title">Robert Davis
-                                                <span class="badge badge-danger float-right">$480</span></a>
-                                            <span class="product-description">
-                                                Presidential Suite - Check-in: 15 Jun 2023 - 2 Nights
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <!-- /.item -->
-                                    <li class="item">
-                                        <div class="product-info">
-                                            <a href="javascript:void(0)" class="product-title">Emma Thompson
-                                                <span class="badge badge-success float-right">$220</span></a>
-                                            <span class="product-description">
-                                                Standard Room - Check-in: 16 Jun 2023 - 3 Nights
-                                            </span>
-                                        </div>
-                                    </li>
-                                    <!-- /.item -->
+                                    <!-- Recent bookings will be loaded here -->
+                                    <div id="recent-bookings-list"></div>
                                 </ul>
                             </div>
                             <!-- /.card-body -->
@@ -624,6 +591,8 @@
 
 <!-- jQuery -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<!-- jQuery UI for sortable -->
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
@@ -645,7 +614,7 @@
             format: 'L',
             inline: true
         });
-        
+
         // Initialize todo list
         $('.todo-list').sortable({
             placeholder: 'sort-highlight',
@@ -653,12 +622,61 @@
             forcePlaceholderSize: true,
             zIndex: 999999
         });
-        
-     
+
         // Notifications
         $('.btn-notification').click(function() {
             toastr.success('Settings updated successfully!');
         });
+
+        // --- Dynamic Dashboard Stats & Recent Bookings ---
+        function updateDashboardStats() {
+            // Fetch all stats from dashboard_stats.php
+            $.get('./dashboard_stats.php', function(data) {
+                // Debug panel removed for production
+                // console.log('dashboard_stats.php response:', data);
+                if (typeof data === 'string') {
+                    try { data = JSON.parse(data); } catch(e) { return; }
+                }
+                if (data) {
+                    $('#stat-total-bookings').text(data.total_bookings);
+                    $('#stat-revenue').text('$' + (data.revenue ? data.revenue.toLocaleString() : '0'));
+                    $('#stat-occupancy-rate').html((data.occupancy_rate || 0) + '<sup style="font-size: 20px">%</sup>');
+                    $('#stat-new-guests').text(data.new_guests || 0);
+                    // Recent bookings
+                    let html = '';
+                    (data.recent_bookings || []).forEach(function(b) {
+                        let badgeClass = 'badge-info';
+                        if (b.status && b.status.toLowerCase() === 'rejected') badgeClass = 'badge-danger';
+                        else if (b.status && b.status.toLowerCase() === 'confirmed') badgeClass = 'badge-success';
+                        else if (b.status && b.status.toLowerCase() === 'pending') badgeClass = 'badge-warning';
+                        let price = '';
+                        if (b.total_price) price = b.total_price;
+                        else if (b.price) price = b.price;
+                        else price = '';
+                        let room = b.room_type || b.room || '';
+                        let checkin = b.check_in || '';
+                        let nights = '';
+                        if (b.check_in && b.check_out) {
+                            let d1 = new Date(b.check_in), d2 = new Date(b.check_out);
+                            nights = Math.max(1, Math.round((d2-d1)/(1000*60*60*24)));
+                        }
+                        html += `<li class="item">
+                            <div class="product-info">
+                                <a href="javascript:void(0)" class="product-title">${b.guest_name || 'Guest'}
+                                    <span class="badge ${badgeClass} float-right">${price ? '$'+price : ''}</span></a>
+                                <span class="product-description">
+                                    ${room ? room + ' - ' : ''}Check-in: ${checkin}${nights ? ' - ' + nights + ' Night' + (nights>1?'s':'') : ''}
+                                </span>
+                            </div>
+                        </li>`;
+                    });
+                    $('#recent-bookings-list').html(html);
+                }
+            }, 'json');
+
+            // (removed duplicate AJAX blocks)
+        }
+        updateDashboardStats();
     });
 </script>
 <script>

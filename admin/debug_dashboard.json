@@ -1,0 +1,4 @@
+{
+  "status": "error",
+  "message": "AJAX is working, backend returns data, but dashboard stats are not updating. This is likely due to the order of AJAX calls: bookings AJAX runs before rooms AJAX, so window.roomsList is not available for revenue calculation. Solution: fetch rooms first, then bookings, then guests, and update all stats in one place."
+}

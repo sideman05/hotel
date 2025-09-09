@@ -294,7 +294,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
+                                <table class="table table-hover text-nowrap" id="guestsTable">
                                     <thead>
                                         <tr>
                                             <th>Guest</th>
@@ -305,152 +305,8 @@
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="guest-avatar mr-3" alt="User Image">
-                                                    <div>
-                                                        <div class="font-weight-bold">Robert Johnson</div>
-                                                        <div class="text-muted">ID: GH234567</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>robert.j@example.com</div>
-                                                <div class="text-muted">+1 (234) 567-8901</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge guest-status-badge bg-success">Checked In</span>
-                                            </td>
-                                            <td>
-                                                <div>Room 302 - Deluxe</div>
-                                                <div class="text-muted">Since: Oct 12, 2023</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-warning">Gold Member</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="guest-avatar mr-3" alt="User Image">
-                                                    <div>
-                                                        <div class="font-weight-bold">Sarah Williams</div>
-                                                        <div class="text-muted">ID: GH345678</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>sarah.w@example.com</div>
-                                                <div class="text-muted">+1 (345) 678-9012</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge guest-status-badge bg-info">Arriving Today</span>
-                                            </td>
-                                            <td>
-                                                <div>Room 405 - Suite</div>
-                                                <div class="text-muted">Check-in: Today, 3 PM</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-danger">Platinum Member</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="guest-avatar mr-3" alt="User Image">
-                                                    <div>
-                                                        <div class="font-weight-bold">Michael Brown</div>
-                                                        <div class="text-muted">ID: GH456789</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>michael.b@example.com</div>
-                                                <div class="text-muted">+1 (456) 789-0123</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge guest-status-badge bg-secondary">Checked Out</span>
-                                            </td>
-                                            <td>
-                                                <div>Room 201 - Standard</div>
-                                                <div class="text-muted">Oct 5-10, 2023</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-secondary">Silver Member</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="https://randomuser.me/api/portraits/women/28.jpg" class="guest-avatar mr-3" alt="User Image">
-                                                    <div>
-                                                        <div class="font-weight-bold">Jennifer Davis</div>
-                                                        <div class="text-muted">ID: GH567890</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>jennifer.d@example.com</div>
-                                                <div class="text-muted">+1 (567) 890-1234</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge guest-status-badge bg-success">Checked In</span>
-                                            </td>
-                                            <td>
-                                                <div>Room 501 - Presidential</div>
-                                                <div class="text-muted">Since: Oct 8, 2023</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-danger">Platinum Member</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="guest-avatar mr-3" alt="User Image">
-                                                    <div>
-                                                        <div class="font-weight-bold">David Miller</div>
-                                                        <div class="text-muted">ID: GH678901</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>david.m@example.com</div>
-                                                <div class="text-muted">+1 (678) 901-2345</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge guest-status-badge bg-warning">Arriving Tomorrow</span>
-                                            </td>
-                                            <td>
-                                                <div>Room 204 - Ocean View</div>
-                                                <div class="text-muted">Check-in: Tomorrow</div>
-                                            </td>
-                                            <td>
-                                                <span class="badge bg-warning">Gold Member</span>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i> View</button>
-                                                <button class="btn btn-sm btn-primary"><i class="fas fa-edit"></i> Edit</button>
-                                            </td>
-                                        </tr>
+                                    <tbody id="guestsTableBody">
+                                        <!-- Dynamic guest rows will be loaded here -->
                                     </tbody>
                                 </table>
                             </div>
@@ -596,20 +452,367 @@
 <!-- Custom scripts -->
 <script>
     $(document).ready(function() {
-        // Form submission handling
-        $('form').on('submit', function(e) {
-            e.preventDefault();
-            // In a real application, this would send data to the server
-            alert('Guest added successfully!');
-            $('#addGuestModal').modal('hide');
+        // Fetch and render guests
+        function fetchGuests() {
+            $.get('guests_crud.php', {action: 'read'}, function(data) {
+                renderGuestsTable(data);
+                updateGuestStats(data);
+            }, 'json');
+        }
+        // Update guest stats (Total Guests, Currently Staying, Upcoming Arrivals, VIP Guests)
+        function updateGuestStats(guests) {
+            var total = guests.length;
+            var staying = 0, upcoming = 0, vip = 0;
+            guests.forEach(function(g) {
+                var status = (g.status || '').toLowerCase();
+                var loyalty = (g.loyalty_tier || '').toLowerCase();
+                // Currently Staying: status contains 'stay', 'checked in', or similar
+                if (status.includes('stay') || status.includes('checked in') || status === 'in') staying++;
+                // Upcoming Arrivals: status contains 'upcoming', 'arrival', 'arriving', or similar
+                if (status.includes('upcoming') || status.includes('arrival') || status.includes('arriving')) upcoming++;
+                // VIP Guests: status or loyalty contains 'vip'
+                if (status.includes('vip') || loyalty.includes('vip')) vip++;
+            });
+            $(".info-box-number").eq(0).text(total); // Total Guests
+            $(".info-box-number").eq(1).text(staying); // Currently Staying
+            $(".info-box-number").eq(2).text(upcoming); // Upcoming Arrivals
+            $(".info-box-number").eq(3).text(vip); // VIP Guests
+        }
+
+        function renderGuestsTable(guests) {
+            let html = '';
+            if (!guests.length) {
+                html = '<tr><td colspan="6" class="text-center text-muted">No guests found.</td></tr>';
+            } else {
+                guests.forEach(function(g) {
+                    let avatar = g.avatar ? g.avatar : (g.gender === 'female' ? 'https://randomuser.me/api/portraits/women/44.jpg' : 'https://randomuser.me/api/portraits/men/32.jpg');
+                    let name = `<div class='font-weight-bold'>${g.first_name || ''} ${g.last_name || ''}</div><div class='text-muted'>ID: ${g.id || ''}</div>`;
+                    let contact = `<div>${g.email || ''}</div><div class='text-muted'>${g.phone || ''}</div>`;
+                    // Status logic: use g.status if present, else loyalty_tier or '-'
+                    let statusText = g.status ? g.status : (g.loyalty_tier ? g.loyalty_tier : '-');
+                    let statusClass = 'bg-secondary';
+                    if (g.status) {
+                        if (g.status.toLowerCase().includes('in')) statusClass = 'bg-success';
+                        else if (g.status.toLowerCase().includes('arriv')) statusClass = 'bg-info';
+                        else if (g.status.toLowerCase().includes('out')) statusClass = 'bg-secondary';
+                        else if (g.status.toLowerCase().includes('vip')) statusClass = 'bg-primary';
+                        else if (g.status.toLowerCase().includes('gold')) statusClass = 'bg-warning';
+                        else if (g.status.toLowerCase().includes('platinum')) statusClass = 'bg-danger';
+                    }
+                    let status = `<span class='badge guest-status-badge ${statusClass}'>${statusText}</span>`;
+                    let stay = `<div>${g.current_stay || '-'}</div><div class='text-muted'>${g.stay_dates || ''}</div>`;
+                    let loyalty = `<span class='badge bg-warning'>${g.loyalty_tier || 'Standard'}</span>`;
+                    html += `
+                        <tr data-id="${g.id}">
+                            <td><div class='d-flex align-items-center'><img src='${avatar}' class='guest-avatar mr-3' alt='User Image'><div>${name}</div></div></td>
+                            <td>${contact}</td>
+                            <td>${status}</td>
+                            <td>${stay}</td>
+                            <td>${loyalty}</td>
+                            <td>
+                                <button class='btn btn-sm btn-info view-guest'><i class='fas fa-eye'></i> View</button>
+                                <button class='btn btn-sm btn-primary edit-guest'><i class='fas fa-edit'></i> Edit</button>
+                                <button class='btn btn-sm btn-warning toggle-vip'><i class='fas fa-crown'></i> ${g.loyalty_tier && g.loyalty_tier.toLowerCase() === 'vip' ? 'Remove VIP' : 'Make VIP'}</button>
+                                <button class='btn btn-sm btn-secondary toggle-status'><i class='fas fa-exchange-alt'></i> Switch Stay/Arrival</button>
+                                <button class='btn btn-sm btn-danger delete-guest'><i class='fas fa-trash'></i> Delete</button>
+                            </td>
+                        </tr>
+                    `;
+        // Toggle VIP status
+        $(document).on('click', '.toggle-vip', function() {
+            var row = $(this).closest('tr');
+            var id = row.data('id');
+            if (!id) return;
+            var btn = $(this);
+            var makeVip = btn.text().toLowerCase().includes('make');
+            $.post('guests_crud.php', {action: 'toggle_vip', id: id, vip: makeVip ? 1 : 0}, function(resp) {
+                if (resp.success) {
+                    fetchGuests();
+                } else {
+                    alert('Failed to update VIP status.');
+                }
+            }, 'json').fail(function() {
+                alert('Failed to update VIP status.');
+            });
         });
-        
-        // Filter functionality
+
+        // Toggle between Currently Staying and Upcoming Arrival
+        $(document).on('click', '.toggle-status', function() {
+            var row = $(this).closest('tr');
+            var id = row.data('id');
+            if (!id) return;
+            var currentStatus = row.find('td').eq(2).text().toLowerCase();
+            var newStatus = currentStatus.includes('stay') ? 'upcoming arrival' : 'currently staying';
+            $.post('guests_crud.php', {action: 'toggle_status', id: id, status: newStatus}, function(resp) {
+                if (resp.success) {
+                    fetchGuests();
+                } else {
+                    alert('Failed to update status.');
+                }
+            }, 'json').fail(function() {
+                alert('Failed to update status.');
+            });
+        });
+                });
+            }
+            $('#guestsTableBody').html(html);
+        }
+        // Delete Guest
+        $(document).on('click', '.delete-guest', function() {
+            var row = $(this).closest('tr');
+            var id = row.data('id');
+            if (!id) return;
+            if (!confirm('Delete this guest?')) return;
+            $.post('guests_crud.php', {action: 'delete', id: id}, function(resp) {
+                if (resp.success) {
+                    row.remove();
+                } else {
+                    alert('Failed to delete guest.');
+                }
+            }, 'json').fail(function() {
+                alert('Failed to delete guest.');
+            });
+        });
+
+        // Edit Guest (show modal with current data)
+        $(document).on('click', '.edit-guest', function() {
+            var row = $(this).closest('tr');
+            var id = row.data('id');
+            if (!id) return;
+            // Fetch guest data from backend for full info
+            $.get('guests_crud.php', {action: 'read_one', id: id}, function(resp) {
+                if (!resp || !resp.success || !resp.guest) {
+                    alert('Failed to load guest data.');
+                    return;
+                }
+                var g = resp.guest;
+                // Fill modal fields
+                $('#editGuestId').val(g.id);
+                $('#editGuestFirstName').val(g.first_name);
+                $('#editGuestLastName').val(g.last_name);
+                $('#editGuestEmail').val(g.email);
+                $('#editGuestPhone').val(g.phone);
+                $('#editGuestCountry').val(g.country);
+                $('#editGuestIdType').val(g.id_type);
+                $('#editGuestIdNumber').val(g.id_number);
+                $('#editGuestAddress').val(g.address);
+                $('#editGuestLoyaltyTier').val(g.loyalty_tier);
+                $('#editGuestCurrentStay').val(g.current_stay);
+                $('#editGuestStatus').val(g.status);
+                $('#editGuestNotes').val(g.notes);
+                // Preferences (multi)
+                if (g.preferences) {
+                    $('#editGuestPreferences').val(g.preferences.split(','));
+                } else {
+                    $('#editGuestPreferences').val([]);
+                }
+                $('#editGuestModal').modal('show');
+            }, 'json');
+        });
+
+        // Submit Edit Guest
+        $('#editGuestModal .btn-primary').off('click').on('click', function(e) {
+            e.preventDefault();
+            $('#editGuestModal form').trigger('submit');
+        });
+        $('#editGuestModal form').off('submit').on('submit', function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var btn = $('#editGuestModal .btn-primary');
+            btn.prop('disabled', true).text('Saving...');
+            var data = {
+                action: 'update',
+                id: $('#editGuestId').val(),
+                first_name: $('#editGuestFirstName').val(),
+                last_name: $('#editGuestLastName').val(),
+                email: $('#editGuestEmail').val(),
+                phone: $('#editGuestPhone').val(),
+                country: $('#editGuestCountry').val(),
+                id_type: $('#editGuestIdType').val(),
+                id_number: $('#editGuestIdNumber').val(),
+                address: $('#editGuestAddress').val(),
+                loyalty_tier: $('#editGuestLoyaltyTier').val(),
+                current_stay: $('#editGuestCurrentStay').val(),
+                status: $('#editGuestStatus').val(),
+                preferences: ($('#editGuestPreferences').val() || []).join(','),
+                notes: $('#editGuestNotes').val()
+            };
+            $.post('guests_crud.php', data, function(resp) {
+                btn.prop('disabled', false).text('Save Changes');
+                if (resp.success) {
+                    $('#editGuestModal').modal('hide');
+                    form[0].reset();
+                    fetchGuests();
+                } else {
+                    alert('Failed to update guest.');
+                }
+            }, 'json').fail(function() {
+                btn.prop('disabled', false).text('Save Changes');
+                alert('Failed to update guest.');
+            });
+        });
+        // Add Guest (robust: always submit form via button, only one handler)
+        $('#addGuestModal .btn-primary').off('click').on('click', function(e) {
+            e.preventDefault();
+            $('#addGuestModal form').trigger('submit');
+        });
+        $('#addGuestModal form').off('submit').on('submit', function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var btn = $('#addGuestModal .btn-primary');
+            btn.prop('disabled', true).text('Adding...');
+            var data = {
+                action: 'create',
+                first_name: $('#guestFirstName').val(),
+                last_name: $('#guestLastName').val(),
+                email: $('#guestEmail').val(),
+                phone: $('#guestPhone').val(),
+                country: $('#guestCountry').val(),
+                id_type: $('#guestIdType').val(),
+                id_number: $('#guestIdNumber').val(),
+                address: $('#guestAddress').val(),
+                loyalty_tier: $('#guestLoyaltyTier').val(),
+                preferences: ($('#guestPreferences').val() || []).join(','),
+                notes: $('#guestNotes').val()
+            };
+            // Simple validation
+            if (!data.first_name || !data.last_name || !data.email) {
+                alert('First name, last name, and email are required.');
+                btn.prop('disabled', false).text('Add Guest');
+                return;
+            }
+            $.post('guests_crud.php', data, function(resp) {
+                btn.prop('disabled', false).text('Add Guest');
+                if (resp.success) {
+                    $('#addGuestModal').modal('hide');
+                    form[0].reset();
+                    fetchGuests();
+                } else {
+                    alert('Failed to add guest.');
+                }
+            }, 'json').fail(function() {
+                btn.prop('disabled', false).text('Add Guest');
+                alert('Failed to add guest.');
+            });
+        });
+
+        // Filter functionality (placeholder)
         $('#statusFilter, #searchGuest').on('change keyup', function() {
             // In a real application, this would filter the guest list
-            console.log('Filtering guests...');
+            // For now, just refetch all
+            fetchGuests();
         });
+
+        // Initial fetch after all handlers
+        fetchGuests();
     });
 </script>
+<!-- Edit Guest Modal (moved after script) -->
+<div class="modal fade" id="editGuestModal" tabindex="-1" role="dialog" aria-labelledby="editGuestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editGuestModalLabel">Edit Guest</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" id="editGuestId">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="editGuestFirstName">First Name</label>
+                            <input type="text" class="form-control" id="editGuestFirstName" placeholder="First name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editGuestLastName">Last Name</label>
+                            <input type="text" class="form-control" id="editGuestLastName" placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="editGuestEmail">Email Address</label>
+                            <input type="email" class="form-control" id="editGuestEmail" placeholder="Email address">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editGuestPhone">Phone Number</label>
+                            <input type="tel" class="form-control" id="editGuestPhone" placeholder="Phone number">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="editGuestCountry">Country</label>
+                            <select class="form-control" id="editGuestCountry">
+                                <option>United States</option>
+                                <option>United Kingdom</option>
+                                <option>Canada</option>
+                                <option>Australia</option>
+                                <option>Germany</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editGuestIdType">ID Type</label>
+                            <select class="form-control" id="editGuestIdType">
+                                <option>Passport</option>
+                                <option>Driver's License</option>
+                                <option>National ID</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editGuestIdNumber">ID Number</label>
+                        <input type="text" class="form-control" id="editGuestIdNumber" placeholder="ID number">
+                    </div>
+                    <div class="form-group">
+                        <label for="editGuestAddress">Address</label>
+                        <textarea class="form-control" id="editGuestAddress" rows="2" placeholder="Full address"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="editGuestLoyaltyTier">Loyalty Tier</label>
+                            <select class="form-control" id="editGuestLoyaltyTier">
+                                <option>Standard</option>
+                                <option>Silver</option>
+                                <option>Gold</option>
+                                <option>Platinum</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editGuestPreferences">Special Preferences</label>
+                            <select class="form-control" id="editGuestPreferences" multiple>
+                                <option>Non-smoking room</option>
+                                <option>High floor</option>
+                                <option>Early check-in</option>
+                                <option>Late check-out</option>
+                                <option>Airport transfer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="editGuestCurrentStay">Current Stay</label>
+                            <input type="text" class="form-control" id="editGuestCurrentStay" placeholder="Room or stay info">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="editGuestStatus">Status</label>
+                            <input type="text" class="form-control" id="editGuestStatus" placeholder="Status (e.g. staying, checked out, VIP)">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="editGuestNotes">Additional Notes</label>
+                        <textarea class="form-control" id="editGuestNotes" rows="2" placeholder="Any special notes or requests"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

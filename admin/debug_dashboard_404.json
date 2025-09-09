@@ -1,0 +1,4 @@
+{
+  "status": "error",
+  "message": "404 error means the AJAX URL is wrong or file is missing. Likely cause: dashboard.html is in /admin/, but AJAX URLs are relative. Solution: change all AJAX URLs to './bookings_crud.php', './guests_crud.php', './rooms_crud.php' to ensure correct path."
+}
